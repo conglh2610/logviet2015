@@ -1,0 +1,48 @@
+﻿<form name="carModelForm" novalidate>
+    <div class="view">
+        <div class="container customerEdit">
+            <header>
+                <h3 class="glyh"><span ng-class="{'glyphicon glyphicon-edit': '{{vm.carModelId}}'!='0','glyphicon glyphicon-plus': '{{vm.carModelId}}'=='0'}">{{vm.title}} đời xe</span></h3>
+            </header>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                    <h5>Tên danh mục xe</h5>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <select ng-options="item.Id as item.Name for item in vm.carCategories" ng-model="vm.carModel.CarCategoryId" class="dropdown form-control">
+                        <option value="">--- Bấm vào để chọn ---</option>
+                    </select>
+                        <span class="errorMessage" ng-show="carModelForm.Name.$touched && carModelForm.Name.$invalid">
+                            Nhập tên danh mục xe
+                        </span>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                    <h5>Tên đời xe</h5>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <input type="text" name="Name" required maxlength="255" class="form-control" data-ng-model="vm.carModel.Name" />
+                    <span class="errorMessage" ng-show="carModelForm.Name.$touched && carModelForm.Name.$invalid">
+                        Nhập tên danh đời xe
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-1 padding-bottom10">
+                    <a href="#/models" class="btn btn-info btn-md"><span class="glyphicon glyphicon-arrow-left"></span>Quay lại</a>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-1">
+                    <button type="submit" class="btn btn-primary"
+                            data-ng-click="vm.Save()"
+                            ng-disabled="carModelForm.$invalid || !carModelForm.$dirty">
+                        {{vm.buttonText}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

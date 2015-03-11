@@ -1,0 +1,48 @@
+﻿<form name="carForm" novalidate>
+    <div class="view">
+        <div class="container customerEdit">
+            <header>
+                <h3 class="glyh"><span ng-class="{'glyphicon glyphicon-edit': '{{vm.carId}}'!='0','glyphicon glyphicon-plus': '{{vm.carId}}'=='0'}">{{vm.title}} xe</span></h3>
+            </header>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                    <h5>Tên đời xe</h5>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <select ng-options="item.Id as item.Name for item in vm.carModels" ng-model="vm.car.CarModelId" class="dropdown form-control">
+                        <option value="">--- Bấm vào để chọn ---</option>
+                    </select>
+                    <span class="errorMessage" ng-show="carForm.Name.$touched && carForm.Name.$invalid">
+                        Nhập tên đời xe
+                    </span>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                    <h5>Tên xe</h5>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <input type="text" name="Name" required maxlength="255" class="form-control" data-ng-model="vm.car.Name" />
+                    <span class="errorMessage" ng-show="carForm.Name.$touched && carForm.Name.$invalid">
+                        Nhập tên xe
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-1 padding-bottom10">
+                    <a href="#/models" class="btn btn-info btn-md"><span class="glyphicon glyphicon-arrow-left"></span>Quay lại</a>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-1">
+                    <button type="submit" class="btn btn-primary"
+                            data-ng-click="vm.Save()"
+                            ng-disabled="carForm.$invalid || !carForm.$dirty">
+                        {{vm.buttonText}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

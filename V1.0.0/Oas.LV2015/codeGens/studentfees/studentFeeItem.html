@@ -1,0 +1,85 @@
+<div class="view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span> {{vm.title}} StudentFee</h3>
+        </header>
+        <form name="itemForm" novalidate>
+            <div class="studentFeeEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>{{StudentFee}} <span data-ng-hide="vm.studentFee.id == 0">(<a style="font-size:12pt" href="#/studentFeeorders/{{vm.studentFee.id}}">View Orders</a>)</span></h4>
+                        <br />
+                    </div>
+                </div>
+					<!-- [@FormControls] -->		
+					<div class="row">
+					    <div class="col-md-2">
+					         TotalPay
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="TotalPay" class="form-control" data-ng-model="vm.StudentFee.TotalPay" required />
+					        <span class="errorMessage" ng-show="itemForm.TotalPay.$touched && itemForm.TotalPay.$invalid">
+					            TotalPay is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         RemainMoney
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="RemainMoney" class="form-control" data-ng-model="vm.StudentFee.RemainMoney" required />
+					        <span class="errorMessage" ng-show="itemForm.RemainMoney.$touched && itemForm.RemainMoney.$invalid">
+					            RemainMoney is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         CreateDate
+					    </div>
+					    <div class="col-md-10">
+					        <input type="date" name="CreateDate" class="form-control" data-ng-model="vm.StudentFee.CreateDate" required />
+					        <span class="errorMessage" ng-show="itemForm.CreateDate.$touched && itemForm.CreateDate.$invalid">
+					            CreateDate is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         FeePaymentStatus
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="FeePaymentStatus" class="form-control" data-ng-model="vm.StudentFee.FeePaymentStatus" required />
+					        <span class="errorMessage" ng-show="itemForm.FeePaymentStatus.$touched && itemForm.FeePaymentStatus.$invalid">
+					            FeePaymentStatus is required
+					        </span>
+					    </div>
+					</div>
+
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" data-ng-click="vm.saveStudentFee()"
+                                ng-disabled="itemForm.$invalid || !itemForm.$dirty">
+                            {{vm.buttonText}}
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger" data-ng-if="vm.studentFee.id > 0" data-ng-click="vm.deleteStudentFee()">Delete</button>
+                    </div>
+                </div>
+                <br />
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-success" data-ng-show="vm.updateStatus">
+                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;StudentFee updated!
+                    </div>
+                </div>
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-important" data-ng-show="vm.errorMessage">
+                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ vm.errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

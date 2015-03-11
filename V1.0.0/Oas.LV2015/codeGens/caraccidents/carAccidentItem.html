@@ -1,0 +1,96 @@
+<div class="view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span> {{vm.title}} CarAccident</h3>
+        </header>
+        <form name="itemForm" novalidate>
+            <div class="carAccidentEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>{{CarAccident}} <span data-ng-hide="vm.carAccident.id == 0">(<a style="font-size:12pt" href="#/carAccidentorders/{{vm.carAccident.id}}">View Orders</a>)</span></h4>
+                        <br />
+                    </div>
+                </div>
+					<!-- [@FormControls] -->		
+					<div class="row">
+					    <div class="col-md-2">
+					         AccidentDate
+					    </div>
+					    <div class="col-md-10">
+					        <input type="date" name="AccidentDate" class="form-control" data-ng-model="vm.CarAccident.AccidentDate" required />
+					        <span class="errorMessage" ng-show="itemForm.AccidentDate.$touched && itemForm.AccidentDate.$invalid">
+					            AccidentDate is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         Total
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="Total" class="form-control" data-ng-model="vm.CarAccident.Total" required />
+					        <span class="errorMessage" ng-show="itemForm.Total.$touched && itemForm.Total.$invalid">
+					            Total is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         ResolveDate
+					    </div>
+					    <div class="col-md-10">
+					        <input type="date" name="ResolveDate" class="form-control" data-ng-model="vm.CarAccident.ResolveDate" required />
+					        <span class="errorMessage" ng-show="itemForm.ResolveDate.$touched && itemForm.ResolveDate.$invalid">
+					            ResolveDate is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         Paid
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="Paid" class="form-control" data-ng-model="vm.CarAccident.Paid" required />
+					        <span class="errorMessage" ng-show="itemForm.Paid.$touched && itemForm.Paid.$invalid">
+					            Paid is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         AccidentStatus
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="AccidentStatus" class="form-control" data-ng-model="vm.CarAccident.AccidentStatus" required />
+					        <span class="errorMessage" ng-show="itemForm.AccidentStatus.$touched && itemForm.AccidentStatus.$invalid">
+					            AccidentStatus is required
+					        </span>
+					    </div>
+					</div>
+
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" data-ng-click="vm.saveCarAccident()"
+                                ng-disabled="itemForm.$invalid || !itemForm.$dirty">
+                            {{vm.buttonText}}
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger" data-ng-if="vm.carAccident.id > 0" data-ng-click="vm.deleteCarAccident()">Delete</button>
+                    </div>
+                </div>
+                <br />
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-success" data-ng-show="vm.updateStatus">
+                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;CarAccident updated!
+                    </div>
+                </div>
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-important" data-ng-show="vm.errorMessage">
+                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ vm.errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

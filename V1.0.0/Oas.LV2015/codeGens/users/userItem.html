@@ -1,0 +1,438 @@
+<div class="view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span> {{vm.title}} User</h3>
+        </header>
+        <form name="itemForm" novalidate>
+            <div class="userEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>{{User}} <span data-ng-hide="vm.user.id == 0">(<a style="font-size:12pt" href="#/userorders/{{vm.user.id}}">View Orders</a>)</span></h4>
+                        <br />
+                    </div>
+                </div>
+					<!-- [@FormControls] -->		
+					<div class="row">
+					    <div class="col-md-2">
+					       Email
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Email" class="form-control" data-ng-model="vm.User.Email" required />
+					        <span class="errorMessage" ng-show="itemForm.Email.$touched && itemForm.Email.$invalid">
+					            Email is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					        EmailConfirmed:
+					    </div>
+					    <div class="col-md-10">
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="1"
+					                        data-ng-checked="vm.User.EmailConfirmed == 'True'"
+					                        data-ng-model="vm.User.EmailConfirmed" />
+					                <!-- Nam -->
+					            </label>
+					        </div>
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="0"
+					                        data-ng-checked="vm.User.EmailConfirmed == 'False'"
+					                        data-ng-model="vm.User.EmailConfirmed" />
+					                <!-- Nữ -->
+					                <br />
+					            </label>
+					        </div>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       PasswordHash
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="PasswordHash" class="form-control" data-ng-model="vm.User.PasswordHash" required />
+					        <span class="errorMessage" ng-show="itemForm.PasswordHash.$touched && itemForm.PasswordHash.$invalid">
+					            PasswordHash is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       SecurityStamp
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="SecurityStamp" class="form-control" data-ng-model="vm.User.SecurityStamp" required />
+					        <span class="errorMessage" ng-show="itemForm.SecurityStamp.$touched && itemForm.SecurityStamp.$invalid">
+					            SecurityStamp is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       PhoneNumber
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="PhoneNumber" class="form-control" data-ng-model="vm.User.PhoneNumber" required />
+					        <span class="errorMessage" ng-show="itemForm.PhoneNumber.$touched && itemForm.PhoneNumber.$invalid">
+					            PhoneNumber is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					        PhoneNumberConfirmed:
+					    </div>
+					    <div class="col-md-10">
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="1"
+					                        data-ng-checked="vm.User.PhoneNumberConfirmed == 'True'"
+					                        data-ng-model="vm.User.PhoneNumberConfirmed" />
+					                <!-- Nam -->
+					            </label>
+					        </div>
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="0"
+					                        data-ng-checked="vm.User.PhoneNumberConfirmed == 'False'"
+					                        data-ng-model="vm.User.PhoneNumberConfirmed" />
+					                <!-- Nữ -->
+					                <br />
+					            </label>
+					        </div>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					        TwoFactorEnabled:
+					    </div>
+					    <div class="col-md-10">
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="1"
+					                        data-ng-checked="vm.User.TwoFactorEnabled == 'True'"
+					                        data-ng-model="vm.User.TwoFactorEnabled" />
+					                <!-- Nam -->
+					            </label>
+					        </div>
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="0"
+					                        data-ng-checked="vm.User.TwoFactorEnabled == 'False'"
+					                        data-ng-model="vm.User.TwoFactorEnabled" />
+					                <!-- Nữ -->
+					                <br />
+					            </label>
+					        </div>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         LockoutEndDateUtc
+					    </div>
+					    <div class="col-md-10">
+					        <input type="date" name="LockoutEndDateUtc" class="form-control" data-ng-model="vm.User.LockoutEndDateUtc" required />
+					        <span class="errorMessage" ng-show="itemForm.LockoutEndDateUtc.$touched && itemForm.LockoutEndDateUtc.$invalid">
+					            LockoutEndDateUtc is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					        LockoutEnabled:
+					    </div>
+					    <div class="col-md-10">
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="1"
+					                        data-ng-checked="vm.User.LockoutEnabled == 'True'"
+					                        data-ng-model="vm.User.LockoutEnabled" />
+					                <!-- Nam -->
+					            </label>
+					        </div>
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="0"
+					                        data-ng-checked="vm.User.LockoutEnabled == 'False'"
+					                        data-ng-model="vm.User.LockoutEnabled" />
+					                <!-- Nữ -->
+					                <br />
+					            </label>
+					        </div>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         AccessFailedCount
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="AccessFailedCount" class="form-control" data-ng-model="vm.User.AccessFailedCount" required />
+					        <span class="errorMessage" ng-show="itemForm.AccessFailedCount.$touched && itemForm.AccessFailedCount.$invalid">
+					            AccessFailedCount is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       UserName
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="UserName" class="form-control" data-ng-model="vm.User.UserName" required />
+					        <span class="errorMessage" ng-show="itemForm.UserName.$touched && itemForm.UserName.$invalid">
+					            UserName is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       FirstName
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="FirstName" class="form-control" data-ng-model="vm.User.FirstName" required />
+					        <span class="errorMessage" ng-show="itemForm.FirstName.$touched && itemForm.FirstName.$invalid">
+					            FirstName is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       LastName
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="LastName" class="form-control" data-ng-model="vm.User.LastName" required />
+					        <span class="errorMessage" ng-show="itemForm.LastName.$touched && itemForm.LastName.$invalid">
+					            LastName is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       Address
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Address" class="form-control" data-ng-model="vm.User.Address" required />
+					        <span class="errorMessage" ng-show="itemForm.Address.$touched && itemForm.Address.$invalid">
+					            Address is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       Phone
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Phone" class="form-control" data-ng-model="vm.User.Phone" required />
+					        <span class="errorMessage" ng-show="itemForm.Phone.$touched && itemForm.Phone.$invalid">
+					            Phone is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       ProfileImage
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="ProfileImage" class="form-control" data-ng-model="vm.User.ProfileImage" required />
+					        <span class="errorMessage" ng-show="itemForm.ProfileImage.$touched && itemForm.ProfileImage.$invalid">
+					            ProfileImage is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         AccountType
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="AccountType" class="form-control" data-ng-model="vm.User.AccountType" required />
+					        <span class="errorMessage" ng-show="itemForm.AccountType.$touched && itemForm.AccountType.$invalid">
+					            AccountType is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					        Suspend:
+					    </div>
+					    <div class="col-md-10">
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="1"
+					                        data-ng-checked="vm.User.Suspend == 'True'"
+					                        data-ng-model="vm.User.Suspend" />
+					                <!-- Nam -->
+					            </label>
+					        </div>
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="0"
+					                        data-ng-checked="vm.User.Suspend == 'False'"
+					                        data-ng-model="vm.User.Suspend" />
+					                <!-- Nữ -->
+					                <br />
+					            </label>
+					        </div>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       Tips
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Tips" class="form-control" data-ng-model="vm.User.Tips" required />
+					        <span class="errorMessage" ng-show="itemForm.Tips.$touched && itemForm.Tips.$invalid">
+					            Tips is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         Gender
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="Gender" class="form-control" data-ng-model="vm.User.Gender" required />
+					        <span class="errorMessage" ng-show="itemForm.Gender.$touched && itemForm.Gender.$invalid">
+					            Gender is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       ContactTitle
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="ContactTitle" class="form-control" data-ng-model="vm.User.ContactTitle" required />
+					        <span class="errorMessage" ng-show="itemForm.ContactTitle.$touched && itemForm.ContactTitle.$invalid">
+					            ContactTitle is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         StartDate
+					    </div>
+					    <div class="col-md-10">
+					        <input type="date" name="StartDate" class="form-control" data-ng-model="vm.User.StartDate" required />
+					        <span class="errorMessage" ng-show="itemForm.StartDate.$touched && itemForm.StartDate.$invalid">
+					            StartDate is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         ExpireDate
+					    </div>
+					    <div class="col-md-10">
+					        <input type="date" name="ExpireDate" class="form-control" data-ng-model="vm.User.ExpireDate" required />
+					        <span class="errorMessage" ng-show="itemForm.ExpireDate.$touched && itemForm.ExpireDate.$invalid">
+					            ExpireDate is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         Status
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="Status" class="form-control" data-ng-model="vm.User.Status" required />
+					        <span class="errorMessage" ng-show="itemForm.Status.$touched && itemForm.Status.$invalid">
+					            Status is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         PackagePrice
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="PackagePrice" class="form-control" data-ng-model="vm.User.PackagePrice" required />
+					        <span class="errorMessage" ng-show="itemForm.PackagePrice.$touched && itemForm.PackagePrice.$invalid">
+					            PackagePrice is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         PaymentMethod
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="PaymentMethod" class="form-control" data-ng-model="vm.User.PaymentMethod" required />
+					        <span class="errorMessage" ng-show="itemForm.PaymentMethod.$touched && itemForm.PaymentMethod.$invalid">
+					            PaymentMethod is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         PaymentPeriod
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="PaymentPeriod" class="form-control" data-ng-model="vm.User.PaymentPeriod" required />
+					        <span class="errorMessage" ng-show="itemForm.PaymentPeriod.$touched && itemForm.PaymentPeriod.$invalid">
+					            PaymentPeriod is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					        IsOnline:
+					    </div>
+					    <div class="col-md-10">
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="1"
+					                        data-ng-checked="vm.User.IsOnline == 'True'"
+					                        data-ng-model="vm.User.IsOnline" />
+					                <!-- Nam -->
+					            </label>
+					        </div>
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="0"
+					                        data-ng-checked="vm.User.IsOnline == 'False'"
+					                        data-ng-model="vm.User.IsOnline" />
+					                <!-- Nữ -->
+					                <br />
+					            </label>
+					        </div>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       Discriminator
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Discriminator" class="form-control" data-ng-model="vm.User.Discriminator" required />
+					        <span class="errorMessage" ng-show="itemForm.Discriminator.$touched && itemForm.Discriminator.$invalid">
+					            Discriminator is required
+					        </span>
+					    </div>
+					</div>
+
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" data-ng-click="vm.saveUser()"
+                                ng-disabled="itemForm.$invalid || !itemForm.$dirty">
+                            {{vm.buttonText}}
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger" data-ng-if="vm.user.id > 0" data-ng-click="vm.deleteUser()">Delete</button>
+                    </div>
+                </div>
+                <br />
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-success" data-ng-show="vm.updateStatus">
+                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;User updated!
+                    </div>
+                </div>
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-important" data-ng-show="vm.errorMessage">
+                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ vm.errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

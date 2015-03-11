@@ -1,0 +1,74 @@
+<div class="view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span> {{vm.title}} StudyTime</h3>
+        </header>
+        <form name="itemForm" novalidate>
+            <div class="studyTimeEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>{{StudyTime}} <span data-ng-hide="vm.studyTime.id == 0">(<a style="font-size:12pt" href="#/studyTimeorders/{{vm.studyTime.id}}">View Orders</a>)</span></h4>
+                        <br />
+                    </div>
+                </div>
+					<!-- [@FormControls] -->		
+					<div class="row">
+					    <div class="col-md-2">
+					       Name
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Name" class="form-control" data-ng-model="vm.StudyTime.Name" required />
+					        <span class="errorMessage" ng-show="itemForm.Name.$touched && itemForm.Name.$invalid">
+					            Name is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         StartHour
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="StartHour" class="form-control" data-ng-model="vm.StudyTime.StartHour" required />
+					        <span class="errorMessage" ng-show="itemForm.StartHour.$touched && itemForm.StartHour.$invalid">
+					            StartHour is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         EndHour
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="EndHour" class="form-control" data-ng-model="vm.StudyTime.EndHour" required />
+					        <span class="errorMessage" ng-show="itemForm.EndHour.$touched && itemForm.EndHour.$invalid">
+					            EndHour is required
+					        </span>
+					    </div>
+					</div>
+
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" data-ng-click="vm.saveStudyTime()"
+                                ng-disabled="itemForm.$invalid || !itemForm.$dirty">
+                            {{vm.buttonText}}
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger" data-ng-if="vm.studyTime.id > 0" data-ng-click="vm.deleteStudyTime()">Delete</button>
+                    </div>
+                </div>
+                <br />
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-success" data-ng-show="vm.updateStatus">
+                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;StudyTime updated!
+                    </div>
+                </div>
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-important" data-ng-show="vm.errorMessage">
+                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ vm.errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

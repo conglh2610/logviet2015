@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2AEDDE8C-CA12-49A3-96F1-60762EA0C759}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Oas.Infrastructure</RootNamespace>
+    <AssemblyName>Oas.Infrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.2.0.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.EntityFramework.2.0.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core">
+      <HintPath>..\..\packages\Microsoft.AspNet.SignalR.Core.1.0.1\lib\net40\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Ninject">
+      <HintPath>..\..\packages\Microsoft.AspNet.SignalR.Ninject.1.0.0\lib\net40\Microsoft.AspNet.SignalR.Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\..\packages\Ninject.3.0.1.10\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Constant.cs" />
+    <Compile Include="Criteria\AdvertismentCriteria.cs" />
+    <Compile Include="Criteria\ApplicationCriteria.cs" />
+    <Compile Include="Criteria\AreaCriteria.cs" />
+    <Compile Include="Criteria\BookingNoteCriteria.cs" />
+    <Compile Include="Criteria\BusinessCategorieCriteria.cs" />
+    <Compile Include="Criteria\BusinessCategoryCriteria.cs" />
+    <Compile Include="Criteria\BusinessCommentCriteria.cs" />
+    <Compile Include="Criteria\BusinessCriteria.cs" />
+    <Compile Include="Criteria\BusinesseCriteria.cs" />
+    <Compile Include="Criteria\BusinessLikeCriteria.cs" />
+    <Compile Include="Criteria\BusinessPromotionCriteria.cs" />
+    <Compile Include="Criteria\CarAccidentNoteCriteria.cs" />
+    <Compile Include="Criteria\CarBookingCriteria.cs" />
+    <Compile Include="Criteria\CarCategorieCriteria.cs" />
+    <Compile Include="Criteria\CarCategoryCriteria.cs" />
+    <Compile Include="Criteria\CarCriteria.cs" />
+    <Compile Include="Criteria\CarItemCriteria.cs" />
+    <Compile Include="Criteria\CarModelCriteria.cs" />
+    <Compile Include="Criteria\ClassCriteria.cs" />
+    <Compile Include="Criteria\ClasseCriteria.cs" />
+    <Compile Include="Criteria\ClassStudentCriteria.cs" />
+    <Compile Include="Criteria\ClassTeacherCriteria.cs" />
+    <Compile Include="Criteria\CountrieCriteria.cs" />
+    <Compile Include="Criteria\CountryCriteria.cs" />
+    <Compile Include="Criteria\Criteria.cs" />
+    <Compile Include="Criteria\DriverCriteria.cs" />
+    <Compile Include="Criteria\EmailTemplateCriteria.cs" />
+    <Compile Include="Criteria\EmployeeCriteria.cs" />
+    <Compile Include="Criteria\ImageCriteria.cs" />
+    <Compile Include="Criteria\LanguageCriteria.cs" />
+    <Compile Include="Criteria\MembershipPackageCriteria.cs" />
+    <Compile Include="Criteria\MessageHistoryCriteria.cs" />
+    <Compile Include="Criteria\PackageItemCriteria.cs" />
+    <Compile Include="Criteria\ParentCriteria.cs" />
+    <Compile Include="Criteria\ProgramCriteria.cs" />
+    <Compile Include="Criteria\ResultCriteria.cs" />
+    <Compile Include="Criteria\RoleCriteria.cs" />
+    <Compile Include="Criteria\RoomCriteria.cs" />
+    <Compile Include="Criteria\SchedulerCriteria.cs" />
+    <Compile Include="Criteria\SettingCriteria.cs" />
+    <Compile Include="Criteria\SkillCriteria.cs" />
+    <Compile Include="Criteria\StudentCriteria.cs" />
+    <Compile Include="Criteria\StudentFeeCriteria.cs" />
+    <Compile Include="Criteria\StudyTimeCriteria.cs" />
+    <Compile Include="Criteria\TeacherCriteria.cs" />
+    <Compile Include="Criteria\UserApplicationCriteria.cs" />
+    <Compile Include="Criteria\UserCriteria.cs" />
+    <Compile Include="Criteria\UserRoleCriteria.cs" />
+    <Compile Include="DatabaseContext.cs" />
+    <Compile Include="Domain\Account\MessageHistory.cs" />
+    <Compile Include="Domain\Advertisment.cs" />
+    <Compile Include="Domain\Applications\Application.cs" />
+    <Compile Include="Domain\Applications\Car\BookingNote.cs" />
+    <Compile Include="Domain\Applications\Car\CarAccident.cs" />
+    <Compile Include="Domain\Applications\Car\CarAccidentNote.cs" />
+    <Compile Include="Domain\Applications\Car\CarBooking.cs" />
+    <Compile Include="Domain\Applications\Car\CarCustomer.cs" />
+    <Compile Include="Domain\Applications\Car\CarItem.cs" />
+    <Compile Include="Domain\Applications\Car\Driver.cs" />
+    <Compile Include="Domain\Applications\ECenter\StudentFeePayment.cs" />
+    <Compile Include="Domain\Applications\ECenter\StudentMoving.cs" />
+    <Compile Include="Domain\Applications\ECenter\Result.cs" />
+    <Compile Include="Domain\Applications\ECenter\ClassTeacher.cs" />
+    <Compile Include="Domain\Applications\ECenter\Person.cs" />
+    <Compile Include="Domain\Applications\ECenter\Registration.cs" />
+    <Compile Include="Domain\Applications\ECenter\Skill.cs" />
+    <Compile Include="Domain\Applications\ECenter\Area.cs" />
+    <Compile Include="Domain\Applications\ECenter\ClassScheduleExam.cs" />
+    <Compile Include="Domain\Applications\ECenter\ClassStatus.cs" />
+    <Compile Include="Domain\Applications\ECenter\ClassTeacherTracking.cs" />
+    <Compile Include="Domain\Applications\ECenter\ClassStudentAbsent.cs" />
+    <Compile Include="Domain\Applications\ECenter\StudentFee.cs" />
+    <Compile Include="Domain\Applications\ECenter\ClassStudent.cs" />
+    <Compile Include="Domain\Applications\ECenter\ClassTimetable.cs" />
+    <Compile Include="Domain\Applications\ECenter\Class.cs" />
+    <Compile Include="Domain\Applications\ECenter\Country.cs" />
+    <Compile Include="Domain\Applications\ECenter\Language.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Applications\ECenter\PotentialStudent.cs" />
+    <Compile Include="Domain\Applications\ECenter\Program.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Applications\ECenter\Parent.cs" />
+    <Compile Include="Domain\Applications\ECenter\StudyTime.cs" />
+    <Compile Include="Domain\Applications\ECenter\StudyDate.cs" />
+    <Compile Include="Domain\Applications\ECenter\Promotion.cs" />
+    <Compile Include="Domain\Applications\ECenter\Supply.cs" />
+    <Compile Include="Domain\Applications\ECenter\Room.cs" />
+    <Compile Include="Domain\Applications\ECenter\Receipt.cs" />
+    <Compile Include="Domain\Applications\ECenter\Employee.cs" />
+    <Compile Include="Domain\Applications\ECenter\Teacher.cs" />
+    <Compile Include="Domain\Applications\ECenter\Student.cs" />
+    <Compile Include="Domain\Applications\UserApplication.cs" />
+    <Compile Include="Domain\Business\BusinessLike.cs" />
+    <Compile Include="Domain\Applications\Car\CarModel.cs" />
+    <Compile Include="Domain\Applications\Car\CarCategory.cs" />
+    <Compile Include="Domain\Applications\Car\Car.cs" />
+    <Compile Include="Domain\Business\Customer.cs" />
+    <Compile Include="Domain\EmailTemplate.cs" />
+    <Compile Include="Domain\OperationStatus.cs" />
+    <Compile Include="Domain\PaymentMethod.cs" />
+    <Compile Include="Domain\Account\Role.cs" />
+    <Compile Include="Domain\Account\Users.cs" />
+    <Compile Include="Domain\Business\Images.cs" />
+    <Compile Include="Domain\Business\Business.cs" />
+    <Compile Include="Domain\Business\BusinessComment.cs" />
+    <Compile Include="Domain\Business\BusinessPromotion.cs" />
+    <Compile Include="Domain\Business\BusinessCategory.cs" />
+    <Compile Include="Domain\Membership\MembershipPackage.cs" />
+    <Compile Include="Domain\Membership\PackageItem.cs" />
+    <Compile Include="Domain\Setting\SiteSetting.cs" />
+    <Compile Include="Domain\AccountType.cs" />
+    <Compile Include="Domain\Status.cs" />
+    <Compile Include="Domain\TreeData.cs" />
+    <Compile Include="Extentions\EnumerableExtensions.cs" />
+    <Compile Include="Domain\ViewModel\BusinessCategoryGroup.cs" />
+    <Compile Include="Domain\ViewModel\StudentClassHistoryViewModel.cs" />
+    <Compile Include="IDatabaseContext.cs" />
+    <Compile Include="Migrations\201503100948495_cong.cs" />
+    <Compile Include="Migrations\201503100948495_cong.Designer.cs">
+      <DependentUpon>201503100948495_cong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Services\AdvertismentService.cs" />
+    <Compile Include="Services\ApplicationService.cs" />
+    <Compile Include="Services\AreaService.cs" />
+    <Compile Include="Services\BookingNoteService.cs" />
+    <Compile Include="Services\BusinessCategoryService.cs" />
+    <Compile Include="Services\BusinessCommentService.cs" />
+    <Compile Include="Services\BusinessLikeService.cs" />
+    <Compile Include="Services\BusinessPromotionService.cs" />
+    <Compile Include="Services\BusinessService.cs" />
+    <Compile Include="Services\CarAccidentNoteService.cs" />
+    <Compile Include="Services\CarBookingService.cs" />
+    <Compile Include="Services\CarCategoryService.cs" />
+    <Compile Include="Services\CarItemService.cs" />
+    <Compile Include="Services\CarModelService.cs" />
+    <Compile Include="Services\CarService.cs" />
+    <Compile Include="Services\ClassService.cs" />
+    <Compile Include="Services\ClassStudentService.cs" />
+    <Compile Include="Services\ClassTeacherService.cs" />
+    <Compile Include="Services\CountryService.cs" />
+    <Compile Include="Services\DriverService.cs" />
+    <Compile Include="Services\EmailTemplateService.cs" />
+    <Compile Include="Services\EmployeeService.cs" />
+    <Compile Include="Services\IAdvertismentService.cs" />
+    <Compile Include="Services\IApplicationService.cs" />
+    <Compile Include="Services\IAreaService.cs" />
+    <Compile Include="Services\IBookingNoteService.cs" />
+    <Compile Include="Services\IBusinessCategoryService.cs" />
+    <Compile Include="Services\IBusinessCommentService.cs" />
+    <Compile Include="Services\IBusinessLikeService.cs" />
+    <Compile Include="Services\IBusinessPromotionService.cs" />
+    <Compile Include="Services\IBusinessService.cs" />
+    <Compile Include="Services\ICarAccidentNoteService.cs" />
+    <Compile Include="Services\ICarBookingService.cs" />
+    <Compile Include="Services\ICarCategoryService.cs" />
+    <Compile Include="Services\ICarItemService.cs" />
+    <Compile Include="Services\ICarModelService.cs" />
+    <Compile Include="Services\ICarService.cs" />
+    <Compile Include="Services\IClassService.cs" />
+    <Compile Include="Services\IClassStudentService.cs" />
+    <Compile Include="Services\IClassTeacherService.cs" />
+    <Compile Include="Services\ICountryService.cs" />
+    <Compile Include="Services\IDriverService.cs" />
+    <Compile Include="Services\IEmailTemplateService.cs" />
+    <Compile Include="Services\IEmployeeService.cs" />
+    <Compile Include="Services\IImageService.cs" />
+    <Compile Include="Services\ILanguageService.cs" />
+    <Compile Include="Services\ImageService.cs" />
+    <Compile Include="Services\IMembershipPackageService.cs" />
+    <Compile Include="Services\IMessageHistoryService.cs" />
+    <Compile Include="Services\IPackageItemService.cs" />
+    <Compile Include="Services\IParentService.cs" />
+    <Compile Include="Services\IProgramService.cs" />
+    <Compile Include="Services\IResultService.cs" />
+    <Compile Include="Services\IRoleService.cs" />
+    <Compile Include="Services\IRoomService.cs" />
+    <Compile Include="Services\ISchedulerService.cs" />
+    <Compile Include="Services\ISettingService.cs" />
+    <Compile Include="Services\ISkillService.cs" />
+    <Compile Include="Services\IStudentFeeService.cs" />
+    <Compile Include="Services\IStudentService.cs" />
+    <Compile Include="Services\IStudyTimeService.cs" />
+    <Compile Include="Services\ITeacherService.cs" />
+    <Compile Include="Services\IUserApplicationService.cs" />
+    <Compile Include="Services\IUserService.cs" />
+    <Compile Include="Services\LanguageService.cs" />
+    <Compile Include="Services\MembershipPackageService.cs" />
+    <Compile Include="Services\MessageHistoryService.cs" />
+    <Compile Include="Services\PackageItemService.cs" />
+    <Compile Include="Services\ParentService.cs" />
+    <Compile Include="Services\ProgramService.cs" />
+    <Compile Include="Services\ResultService.cs" />
+    <Compile Include="Services\RoleService.cs" />
+    <Compile Include="Services\RoomService.cs" />
+    <Compile Include="Services\SchedulerService.cs" />
+    <Compile Include="Services\SettingService.cs" />
+    <Compile Include="Services\SkillService.cs" />
+    <Compile Include="Services\StudentFeeService.cs" />
+    <Compile Include="Services\StudentService.cs" />
+    <Compile Include="Services\StudyTimeService.cs" />
+    <Compile Include="Services\TeacherService.cs" />
+    <Compile Include="Services\UserApplicationService.cs" />
+    <Compile Include="Services\UserService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Criteria\readme.txt" />
+    <Content Include="Services\interfaces\readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201503100948495_cong.resx">
+      <DependentUpon>201503100948495_cong.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

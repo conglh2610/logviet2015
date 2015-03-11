@@ -1,0 +1,129 @@
+<div class="view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span> {{vm.title}} Teacher</h3>
+        </header>
+        <form name="itemForm" novalidate>
+            <div class="teacherEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>{{Teacher}} <span data-ng-hide="vm.teacher.id == 0">(<a style="font-size:12pt" href="#/teacherorders/{{vm.teacher.id}}">View Orders</a>)</span></h4>
+                        <br />
+                    </div>
+                </div>
+					<!-- [@FormControls] -->		
+					<div class="row">
+					    <div class="col-md-2">
+					       FirstName
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="FirstName" class="form-control" data-ng-model="vm.Teacher.FirstName" required />
+					        <span class="errorMessage" ng-show="itemForm.FirstName.$touched && itemForm.FirstName.$invalid">
+					            FirstName is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       LastName
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="LastName" class="form-control" data-ng-model="vm.Teacher.LastName" required />
+					        <span class="errorMessage" ng-show="itemForm.LastName.$touched && itemForm.LastName.$invalid">
+					            LastName is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         DateOfBirth
+					    </div>
+					    <div class="col-md-10">
+					        <input type="date" name="DateOfBirth" class="form-control" data-ng-model="vm.Teacher.DateOfBirth" required />
+					        <span class="errorMessage" ng-show="itemForm.DateOfBirth.$touched && itemForm.DateOfBirth.$invalid">
+					            DateOfBirth is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       Address
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Address" class="form-control" data-ng-model="vm.Teacher.Address" required />
+					        <span class="errorMessage" ng-show="itemForm.Address.$touched && itemForm.Address.$invalid">
+					            Address is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       PhoneNumber
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="PhoneNumber" class="form-control" data-ng-model="vm.Teacher.PhoneNumber" required />
+					        <span class="errorMessage" ng-show="itemForm.PhoneNumber.$touched && itemForm.PhoneNumber.$invalid">
+					            PhoneNumber is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       Email
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Email" class="form-control" data-ng-model="vm.Teacher.Email" required />
+					        <span class="errorMessage" ng-show="itemForm.Email.$touched && itemForm.Email.$invalid">
+					            Email is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         Gender
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="Gender" class="form-control" data-ng-model="vm.Teacher.Gender" required />
+					        <span class="errorMessage" ng-show="itemForm.Gender.$touched && itemForm.Gender.$invalid">
+					            Gender is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         SalaryByHour
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="SalaryByHour" class="form-control" data-ng-model="vm.Teacher.SalaryByHour" required />
+					        <span class="errorMessage" ng-show="itemForm.SalaryByHour.$touched && itemForm.SalaryByHour.$invalid">
+					            SalaryByHour is required
+					        </span>
+					    </div>
+					</div>
+
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" data-ng-click="vm.saveTeacher()"
+                                ng-disabled="itemForm.$invalid || !itemForm.$dirty">
+                            {{vm.buttonText}}
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger" data-ng-if="vm.teacher.id > 0" data-ng-click="vm.deleteTeacher()">Delete</button>
+                    </div>
+                </div>
+                <br />
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-success" data-ng-show="vm.updateStatus">
+                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;Teacher updated!
+                    </div>
+                </div>
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-important" data-ng-show="vm.errorMessage">
+                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ vm.errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

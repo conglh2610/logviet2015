@@ -1,0 +1,125 @@
+<div class="teachers view indent">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-plane"></span>Teacher</h3>
+        </header>
+        <div class="row">
+            <div class="col-md-10">
+                <div class="navbar">
+                    <ul class="nav navbar-nav">
+                        <li data-ng-class="{active: !vm.listDisplayModeEnabled}" class="toolbaritem">
+                            <a data-ng-click="vm.changeDisplayMode(vm.DisplayModeEnum.Card)">
+                                <span class="glyphicon glyphicon-th-large"></span> Card View</a>
+                        </li>
+                        <li data-ng-class="{active: vm.listDisplayModeEnabled}" class="toolbaritem">
+                            <a data-ng-click="vm.changeDisplayMode(vm.DisplayModeEnum.List)">
+                                <span class="glyphicon glyphicon-align-justify"></span> List View
+                            </a>
+                        </li>
+                        <li class="toolbaritem">
+                            <a data-ng-click="vm.navigate('/teacherItem/0')">
+                                <span class="glyphicon glyphicon-plus"></span> Thêm mới
+                            </a>
+                        </li>
+                    </ul>
+                    <form class="navbar-form navbar-right">
+                        <div class="form-group">
+                            <label class="navbarText col-sm-2">Filter:</label>
+                            <div class="col-sm-10">
+                                <input type="text"
+                                       data-ng-model="vm.searchText"
+                                       data-ng-change="vm.searchTextChanged()"
+                                       class="novalidate form-control" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row cardContainer show-hide-animation" data-ng-hide="vm.listDisplayModeEnabled">
+                <div class="col-sm-6 col-md-4 col-lg-3" data-ng-class="vm.cardAnimationClass"
+                     data-ng-repeat="teacher in vm.filteredTeachers | orderBy:'Name'">
+                    <div class="card">
+                        <button class="btn close cardClose" title="Xóa teacher" data-ng-click="vm.deleteTeacher(teacher.Id)">&times;</button>
+                        <div class="cardHeader"><a href="#/teacherItem/{{teacher.Id}}" class="white">{{teacher.Name}} <i class="icon-edit icon-white editIcon"></i></a></div>
+                        <div class="cardBody">
+                            <div class="clearfix">
+                                <div class="pull-left cardBodyLeft">
+                                    <a href="#/teacherItem/{{teacher.Id}}" class="white"><img data-ng-src="/Content/images/teacherItem.png" class="cardImage" /></a>
+                                </div>
+                                <div class="pull-left cardBodyRight">
+                                    <div class="cardBodyContent">Khu vực: {{teacher.Area.Name}}</div>
+									<!-- [@DisplayViewCard]-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row gridContainer customersTable show-hide-animation" data-ng-show="vm.listDisplayModeEnabled">
+                <div class="col-md-10">
+                    <div>
+                        <table class="table table-striped table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>&nbsp;</th>
+									<!--[@TableHeaders]-->
+									<th data-ng-click="vm.setOrder('FirstName')">FirstName</th>
+									<th data-ng-click="vm.setOrder('LastName')">LastName</th>
+									<th data-ng-click="vm.setOrder('DateOfBirth')">DateOfBirth</th>
+									<th data-ng-click="vm.setOrder('Address')">Address</th>
+									<th data-ng-click="vm.setOrder('PhoneNumber')">PhoneNumber</th>
+									<th data-ng-click="vm.setOrder('Email')">Email</th>
+									<th data-ng-click="vm.setOrder('Gender')">Gender</th>
+									<th data-ng-click="vm.setOrder('SalaryByHour')">SalaryByHour</th>
+
+                                    <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-ng-repeat="teacher in vm.filteredTeachers" class="repeat-animation">                                    
+									<td width="20px"><input type="checkbox"></td>
+									<!-- [@TableBodies] -->
+									<td>{{teacher.FirstName}}</td>
+									<td>{{teacher.LastName}}</td>
+									<td>{{teacher.DateOfBirth}}</td>
+									<td>{{teacher.Address}}</td>
+									<td>{{teacher.PhoneNumber}}</td>
+									<td>{{teacher.Email}}</td>
+									<td>{{teacher.Gender}}</td>
+									<td>{{teacher.SalaryByHour}}</td>
+
+
+                                    <td width="120px">
+										<button class="btn btn-edit" data-ng-click="vm.editTeacher(teacher.Id)">Sửa</button>
+										<button class="btn btn-danger" data-ng-click="vm.deleteTeacher(teacher.Id)">Xóa</button>
+									</td>                                    
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row show-hide-animation" data-ng-show="vm.filteredTeachers.length == 0">
+                <div class="col-span-12">
+                    <h4>Không tìm thấy dữa liệu</h4>
+                </div>
+            </div>
+        </div>
+        <div class="row show-hide-animation" data-ng-show="vm.teachers.length > 0">
+            <div class="col-md-12">
+                <div data-pagination
+                     data-on-select-page="vm.pageChanged(page)"
+                     data-total-items="vm.totalRecords"
+                     data-page="vm.currentPage"
+                     data-items-per-page="vm.pageSize"
+                     data-boundary-links="true"
+                     class="pagination-sm"></div>
+                <h5>Đang hiển thị {{ vm.filteredCount }} strong tổng số {{ vm.totalRecords}} bảng ghi</h5>
+            </div>
+        </div>
+    </div>
+</div>

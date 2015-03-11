@@ -1,0 +1,32 @@
+﻿<div role="tabpanel">
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active">
+            <a href="#" aria-controls="skill" role="tab" data-toggle="tab">Kỹ Năng</a>
+        </li>
+
+        <li role="presentation">
+            <a href="#" aria-controls="language" role="tab" data-toggle="tab">Ngôn ngữ</a>
+        </li>
+
+        <li role="presentation">
+            <a href="#" aria-controls="program" role="tab" data-toggle="tab">Khóa học</a>
+        </li>
+    </ul>
+
+    <div class="tab-contents">
+        <div role="tabpanel" class="tab-panel active" id="skill">
+            <input type="button" value="Add" ng-click="vm.addSkill()" class="btn btn-info btn-md" />
+            <span class="glyphicon glyphicon-add"></span>
+        </div>
+
+        <div role="tabpanel" class="tab-panel" id="language">
+
+        </div>
+
+        <div role="tabpanel" class="tab-panel" id="program">
+
+
+        </div>
+    </div>
+</div>
+<script src="app/components/ecenters/skillController.js?v=1.0"></script>

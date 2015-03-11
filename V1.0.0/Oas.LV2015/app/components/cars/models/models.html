@@ -1,0 +1,65 @@
+﻿<div class="body-content">
+
+    <div class="container">
+        <h1><strong>{{vm.title}}</strong></h1>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <input type="text" class="form-control " ng-model="vm.search.searchText" />
+            </div>
+            <div>
+                <input type="button" class="btn btn-primary" value="Tìm kiếm" ng-click="vm.search()" />
+            </div>
+        </div>
+        <br style="clear:both" />
+        <a data-ng-click="vm.navigate('/carModelItem/0')" class="btn btn-success">
+            <span class="glyphicon glyphicon-plus"></span> Thêm mới đời xe
+        </a>
+        <br /><br />
+        <div class="gridContainer customersTable show-hide-animation">
+            <div>
+                <table class="table table-bordered table-striped table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Hình ảnh</th>
+                            <th class="pointer" ng-repeat="carModelColumn in vm.carModelsColumns" ng-click="vm.setOrder(carModelColumn.columnName)">{{carModelColumn.displayName}}</th>
+                            <th class="column-action">Xử lý</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-ng-repeat="carModel in vm.carModels | orderBy:vm.columnName:vm.sortDirection" class="repeat-animation">
+                            <td></td>
+                            <td>{{carModel.CarCategory.Name}}</td>
+                            <td><a href="#/carModelItem/{{carModel.Id}}"> {{carModel.Name}}</a></td>
+                            <td>
+                                <a class="btn btn-info" href="#/carModelItem/{{carModel.Id}}">Sửa</a>
+                                <button class="btn btn-danger" data-ng-click="vm.deleteCarModel(carModel)">Xóa</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="show-hide-animation" data-ng-show="vm.carModels.length == 0">
+            <div class="col-span-12">
+                <h4 class="text-info">Không tìm thấy đời xe nào!</h4>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="show-hide-animation" data-ng-show="vm.carModels.length > 0">
+            <div class="col-md-12">
+                <div data-pagination
+                     data-on-select-page="vm.pageChanged(page)"
+                     data-total-items="vm.totalItems"
+                     data-page="vm.currentPage"
+                     data-items-per-page="vm.itemPerPage"
+                     data-boundary-links="true"
+                     class="pagination-sm"></div>
+                <h5 class="text-info">Hiển thị {{ vm.carModels.length }} trong tổng số {{ vm.totalRecords}} đời xe</h5>
+            </div>
+        </div>
+    </div>
+</div>

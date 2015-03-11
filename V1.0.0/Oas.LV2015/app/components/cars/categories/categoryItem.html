@@ -1,0 +1,34 @@
+﻿<form name="carCategoryForm" novalidate>
+    <div class="view">
+        <div class="container customerEdit">
+            <header>
+                <h3 class="glyh"><span ng-class="{'glyphicon glyphicon-edit': '{{vm.carCategoryId}}'!='0','glyphicon glyphicon-plus': '{{vm.carCategoryId}}'=='0'}">{{vm.title}} danh mục xe</span></h3>
+            </header>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                    <h5>Tên danh mục xe</h5>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <input type="text" name="Name" required maxlength="255" class="form-control" data-ng-model="vm.carCategory.Name" />
+                    <span class="errorMessage" ng-show="carCategoryForm.Name.$touched && carCategoryForm.Name.$invalid">
+                        Nhập tên danh mục xe
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-1 padding-bottom10">
+                    <a href="#/categories" class="btn btn-info btn-md"><span class="glyphicon glyphicon-arrow-left"></span>Quay lại</a>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-1">
+                    <button type="submit" class="btn btn-primary"
+                            data-ng-click="vm.Save()"
+                            ng-disabled="carCategoryForm.$invalid || !carCategoryForm.$dirty">
+                        {{vm.buttonText}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

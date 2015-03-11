@@ -1,0 +1,123 @@
+﻿<form name="studentform" novalidate>
+    <div class="view">
+        <div class="container customerEdit">
+            <header>
+                <h3><span class="glyphicon glyphicon-edit">{{vm.title}} Student</span></h3>
+            </header>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                    <h5>Họ và tên đệm</h5>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <input type="text" name="LastName" required maxlength="255" class="form-control" data-ng-model="vm.student.LastName" />
+                    <span class="errorMessage" ng-show="studentform.LastName.$touched && studentform.LastName.$invalid">
+                        Nhập họ
+                    </span>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                    <h5>Tên</h5>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <input type="text" name="FirstName" required maxlength="255" class="form-control" data-ng-model="vm.student.FirstName" />
+                    <span class="errorMessage" ng-show="studentform.FirstName.$touched && studentform.FirstName.$invalid">
+                        Nhập tên
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                    <h5>Giới tính</h5>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <select name="Gender" class="form-control" data-ng-model="vm.student.Gender">
+                        <option value="0" selected>Nam</option>
+                        <option value="1">Nữ</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                    <h5>Ngày sinh</h5>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <input type="date" name="DateOfBirth" class="form-control" data-ng-model="vm.student.DateOfBirth" required />
+                    <span class="errorMessage" ng-show="studentform.DateOfBirth.$touched && studentform.DateOfBirth.$invalid">Nhập ngày sinh</span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                    <h5>Địa chỉ</h5>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <input type="text" name="Address" class="form-control" data-ng-model="vm.student.Address" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                    <h5>Email</h5>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <input type="email" name="Email" class="form-control" data-ng-model="vm.student.Email" maxlength="255   " />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                    <h5>Di động</h5>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <input type="tel" name="PhoneNumber" class="form-control" data-ng-model="vm.student.PhoneNumber" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                    <h5>Facebook</h5>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <input type="tel" name="Facebook" class="form-control" data-ng-model="vm.student.FaceBook" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                    <h5>Twitter</h5>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <input type="tel" name="Twitter" class="form-control" data-ng-model="vm.student.Twitter" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                    <h5>Google +</h5>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 padding-bottom10">
+                    <input type="tel" name="GooglePlus" class="form-control" data-ng-model="vm.student.googleplus" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-1 padding-bottom10">
+                    <a href="#/students" class="btn btn-info btn-md"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-1">
+                    <button type="submit" class="btn btn-primary"
+                            data-ng-click="vm.Save()"
+                            ng-disabled="studentform.$invalid || !studentform.$dirty">
+                        {{vm.buttonText}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+

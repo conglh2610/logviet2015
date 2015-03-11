@@ -1,0 +1,74 @@
+<div class="view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span> {{vm.title}} BookingNote</h3>
+        </header>
+        <form name="itemForm" novalidate>
+            <div class="bookingNoteEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>{{BookingNote}} <span data-ng-hide="vm.bookingNote.id == 0">(<a style="font-size:12pt" href="#/bookingNoteorders/{{vm.bookingNote.id}}">View Orders</a>)</span></h4>
+                        <br />
+                    </div>
+                </div>
+					<!-- [@FormControls] -->		
+					<div class="row">
+					    <div class="col-md-2">
+					       Note
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Note" class="form-control" data-ng-model="vm.BookingNote.Note" required />
+					        <span class="errorMessage" ng-show="itemForm.Note.$touched && itemForm.Note.$invalid">
+					            Note is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       CreatedBy
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="CreatedBy" class="form-control" data-ng-model="vm.BookingNote.CreatedBy" required />
+					        <span class="errorMessage" ng-show="itemForm.CreatedBy.$touched && itemForm.CreatedBy.$invalid">
+					            CreatedBy is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         CreatedDate
+					    </div>
+					    <div class="col-md-10">
+					        <input type="date" name="CreatedDate" class="form-control" data-ng-model="vm.BookingNote.CreatedDate" required />
+					        <span class="errorMessage" ng-show="itemForm.CreatedDate.$touched && itemForm.CreatedDate.$invalid">
+					            CreatedDate is required
+					        </span>
+					    </div>
+					</div>
+
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" data-ng-click="vm.saveBookingNote()"
+                                ng-disabled="itemForm.$invalid || !itemForm.$dirty">
+                            {{vm.buttonText}}
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger" data-ng-if="vm.bookingNote.id > 0" data-ng-click="vm.deleteBookingNote()">Delete</button>
+                    </div>
+                </div>
+                <br />
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-success" data-ng-show="vm.updateStatus">
+                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;BookingNote updated!
+                    </div>
+                </div>
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-important" data-ng-show="vm.errorMessage">
+                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ vm.errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

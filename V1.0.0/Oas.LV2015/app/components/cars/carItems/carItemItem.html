@@ -1,0 +1,74 @@
+﻿<form name="carItemForm" novalidate>
+    <div class="view">
+        <div class="container customerEdit">
+            <header>
+                <h3 class="glyh"><span ng-class="{'glyphicon glyphicon-edit': '{{vm.carItemId}}'!='0','glyphicon glyphicon-plus': '{{vm.carItemId}}'=='0'}">{{vm.title}} đầu xe</span></h3>
+            </header>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                    <h5>Tên xe</h5>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <select ng-options="item.Id as item.Name for item in vm.cars" ng-model="vm.carItem.CarId" class="dropdown form-control">
+                        <option value="">--- Bấm vào để chọn ---</option>
+                    </select>
+                    <span class="errorMessage" ng-show="carItemForm.Name.$touched && carItemForm.Name.$invalid">
+                        Nhập tên xe
+                    </span>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                    <h5>Biển số</h5>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <input type="text" name="CarNumber" required maxlength="255" class="form-control" data-ng-model="vm.carItem.CarNumber" />
+                    <span class="errorMessage" ng-show="carItemForm.CarNumber.$touched && carItemForm.CarNumber.$invalid">
+                        Nhập biển số
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                    <h5>Giá</h5>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <input type="text" name="UnitPrice" required maxlength="255" class="form-control" data-ng-model="vm.carItem.UnitPrice" />
+                    <span class="errorMessage" ng-show="carItemForm.UnitPrice.$touched && carItemForm.UnitPrice.$invalid">
+                        Nhập Giá
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                    <h5>Mô tả</h5>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <input type="text" name="Description" required maxlength="255" class="form-control" data-ng-model="vm.carItem.Description" />
+                    <span class="errorMessage" ng-show="carItemForm.Description.$touched && carItemForm.Description.$invalid">
+                        Nhập mô tả
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-1 padding-bottom10">
+                    <a href="#/carItems" class="btn btn-info btn-md"><span class="glyphicon glyphicon-arrow-left"></span>Quay lại</a>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-1">
+                    <button type="submit" class="btn btn-primary"
+                            data-ng-click="vm.Save()"
+                            ng-disabled="carItemForm.$invalid || !carItemForm.$dirty">
+                        {{vm.buttonText}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

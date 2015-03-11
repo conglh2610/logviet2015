@@ -1,0 +1,131 @@
+<div class="view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span> {{vm.title}} CarBooking</h3>
+        </header>
+        <form name="itemForm" novalidate>
+            <div class="carBookingEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>{{CarBooking}} <span data-ng-hide="vm.carBooking.id == 0">(<a style="font-size:12pt" href="#/carBookingorders/{{vm.carBooking.id}}">View Orders</a>)</span></h4>
+                        <br />
+                    </div>
+                </div>
+					<!-- [@FormControls] -->		
+					<div class="row">
+					    <div class="col-md-2">
+					        IsNeededDriver:
+					    </div>
+					    <div class="col-md-10">
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="1"
+					                        data-ng-checked="vm.CarBooking.IsNeededDriver == 'True'"
+					                        data-ng-model="vm.CarBooking.IsNeededDriver" />
+					                <!-- Nam -->
+					            </label>
+					        </div>
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="0"
+					                        data-ng-checked="vm.CarBooking.IsNeededDriver == 'False'"
+					                        data-ng-model="vm.CarBooking.IsNeededDriver" />
+					                <!-- Nữ -->
+					                <br />
+					            </label>
+					        </div>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         BookFromDate
+					    </div>
+					    <div class="col-md-10">
+					        <input type="date" name="BookFromDate" class="form-control" data-ng-model="vm.CarBooking.BookFromDate" required />
+					        <span class="errorMessage" ng-show="itemForm.BookFromDate.$touched && itemForm.BookFromDate.$invalid">
+					            BookFromDate is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         BookToDate
+					    </div>
+					    <div class="col-md-10">
+					        <input type="date" name="BookToDate" class="form-control" data-ng-model="vm.CarBooking.BookToDate" required />
+					        <span class="errorMessage" ng-show="itemForm.BookToDate.$touched && itemForm.BookToDate.$invalid">
+					            BookToDate is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         BookType
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="BookType" class="form-control" data-ng-model="vm.CarBooking.BookType" required />
+					        <span class="errorMessage" ng-show="itemForm.BookType.$touched && itemForm.BookType.$invalid">
+					            BookType is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         TotalDay
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="TotalDay" class="form-control" data-ng-model="vm.CarBooking.TotalDay" required />
+					        <span class="errorMessage" ng-show="itemForm.TotalDay.$touched && itemForm.TotalDay.$invalid">
+					            TotalDay is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       Schduling
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Schduling" class="form-control" data-ng-model="vm.CarBooking.Schduling" required />
+					        <span class="errorMessage" ng-show="itemForm.Schduling.$touched && itemForm.Schduling.$invalid">
+					            Schduling is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         BookStatus
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="BookStatus" class="form-control" data-ng-model="vm.CarBooking.BookStatus" required />
+					        <span class="errorMessage" ng-show="itemForm.BookStatus.$touched && itemForm.BookStatus.$invalid">
+					            BookStatus is required
+					        </span>
+					    </div>
+					</div>
+
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" data-ng-click="vm.saveCarBooking()"
+                                ng-disabled="itemForm.$invalid || !itemForm.$dirty">
+                            {{vm.buttonText}}
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger" data-ng-if="vm.carBooking.id > 0" data-ng-click="vm.deleteCarBooking()">Delete</button>
+                    </div>
+                </div>
+                <br />
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-success" data-ng-show="vm.updateStatus">
+                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;CarBooking updated!
+                    </div>
+                </div>
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-important" data-ng-show="vm.errorMessage">
+                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ vm.errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

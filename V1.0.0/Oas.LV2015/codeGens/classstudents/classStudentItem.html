@@ -1,0 +1,74 @@
+<div class="view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span> {{vm.title}} ClassStudent</h3>
+        </header>
+        <form name="itemForm" novalidate>
+            <div class="classStudentEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>{{ClassStudent}} <span data-ng-hide="vm.classStudent.id == 0">(<a style="font-size:12pt" href="#/classStudentorders/{{vm.classStudent.id}}">View Orders</a>)</span></h4>
+                        <br />
+                    </div>
+                </div>
+					<!-- [@FormControls] -->		
+					<div class="row">
+					    <div class="col-md-2">
+					         Status
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="Status" class="form-control" data-ng-model="vm.ClassStudent.Status" required />
+					        <span class="errorMessage" ng-show="itemForm.Status.$touched && itemForm.Status.$invalid">
+					            Status is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         Discount
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="Discount" class="form-control" data-ng-model="vm.ClassStudent.Discount" required />
+					        <span class="errorMessage" ng-show="itemForm.Discount.$touched && itemForm.Discount.$invalid">
+					            Discount is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         FinalResult
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="FinalResult" class="form-control" data-ng-model="vm.ClassStudent.FinalResult" required />
+					        <span class="errorMessage" ng-show="itemForm.FinalResult.$touched && itemForm.FinalResult.$invalid">
+					            FinalResult is required
+					        </span>
+					    </div>
+					</div>
+
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" data-ng-click="vm.saveClassStudent()"
+                                ng-disabled="itemForm.$invalid || !itemForm.$dirty">
+                            {{vm.buttonText}}
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger" data-ng-if="vm.classStudent.id > 0" data-ng-click="vm.deleteClassStudent()">Delete</button>
+                    </div>
+                </div>
+                <br />
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-success" data-ng-show="vm.updateStatus">
+                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;ClassStudent updated!
+                    </div>
+                </div>
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-important" data-ng-show="vm.errorMessage">
+                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ vm.errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

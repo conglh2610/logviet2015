@@ -1,0 +1,82 @@
+﻿<div class="studentclasshistory view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-history"></span>&nbsp;&nbsp;Quá trình học tập</h3>
+        </header>
+        <br />
+        <div class="customerEdit">
+            <!--<form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="navbarText col-sm-2">Tìm kiếm</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control novalidate"
+                               data-ng-model="vm.searchText"
+                               data-ng-change="vm.searchTextChanged()" />
+                    </div>
+                </div>
+            </form>-->
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 repeat-animation">
+                    <table class="table table-hover table-striped table-condensed table-bordered ordersTable">
+                        <thead>
+                            <tr>
+                                <th data-ng-click="vm.setOrder('languageName')">Ngôn ngữ</th>
+                                <th data-ng-click="vm.setOrder('programName')">Khóa Học</th>
+                                <th data-ng-click="vm.setOrder('className')">Lớp Học</th>
+                                <th data-ng-click="vm.setOrder('startDate')">Ngày bắt đầu</th>
+                                <th data-ng-click="vm.setOrder('endDate')">Ngày kết thúc</th>
+                                <th data-ng-click="vm.setOrder('status')">Trạng Thái</th>
+                                <th data-ng-click="vm.setOrder('result')">Kết Quả</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="item in vm.studentClassHistories| orderBy:vm.columnName:vm.sortDirection" class="repeat-animation">
+                                <td>{{item.LanguageName}}</td>
+                                <td>{{item.ProgramName}}</td>
+                                <td>{{item.ClassName}}</td>
+                                <td>{{item.StartDate | date:'MM/dd/yyyy'}}</td>
+                                <td>{{item.EndDate | date:'MM/dd/yyyy'}}</td>
+                                <td>
+                                    <span data-ng-pluralize count="item.Status"
+                                          when="{'0':'Đang chờ mở lớp','1': 'Đặt chỗ', '2':'Hủy','3': 'Đang học','4':'Đã hoàn thành','other': ''}">
+                                    </span>
+                                </td>
+                                <td>
+                                    <span data-ng-pluralize count="item.Result"
+                                          when="{'0':'N/A','1': 'Trung bình', '2':'Khá','3': 'Giỏi'}">
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-1 padding-bottom10">
+                    <a href="#/students" class="btn btn-info btn-md"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+                </div>
+                
+            </div>
+            <div class="row show-hide-animation" data-ng-show="vm.studentClassHistories.length == 0">
+                <div class="col-md-12">
+                    <h4>Học viên này chưa từng học lớp nào</h4>
+                </div>
+            </div>
+            <!--<div class="row show-hide-animation" data-ng-show="vm.studentClassHistories.length > 0" style="margin-left:0px;">
+                <div class="col-md-12">
+                    <div data-pagination
+                         data-on-select-page="vm.pageChanged(page)"
+                         data-total-items="vm.totalRecords"
+                         data-page="vm.currentPage"
+                         data-boundary-links="true"
+                         class="pagination-sm">
+                    </div>
+                    <h5>Hiển thị {{ vm.studentClassHistories.length }} trong tổng số {{ vm.totalRecords}} kết quả</h5>
+                </div>
+            </div>-->
+        </div>
+    </div>
+    <br /><br /><br />
+</div>

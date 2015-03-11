@@ -1,0 +1,121 @@
+<div class="roles view indent">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-plane"></span>Role</h3>
+        </header>
+        <div class="row">
+            <div class="col-md-10">
+                <div class="navbar">
+                    <ul class="nav navbar-nav">
+                        <li data-ng-class="{active: !vm.listDisplayModeEnabled}" class="toolbaritem">
+                            <a data-ng-click="vm.changeDisplayMode(vm.DisplayModeEnum.Card)">
+                                <span class="glyphicon glyphicon-th-large"></span> Card View</a>
+                        </li>
+                        <li data-ng-class="{active: vm.listDisplayModeEnabled}" class="toolbaritem">
+                            <a data-ng-click="vm.changeDisplayMode(vm.DisplayModeEnum.List)">
+                                <span class="glyphicon glyphicon-align-justify"></span> List View
+                            </a>
+                        </li>
+                        <li class="toolbaritem">
+                            <a data-ng-click="vm.navigate('/roleItem/0')">
+                                <span class="glyphicon glyphicon-plus"></span> Thêm mới
+                            </a>
+                        </li>
+                    </ul>
+                    <form class="navbar-form navbar-right">
+                        <div class="form-group">
+                            <label class="navbarText col-sm-2">Filter:</label>
+                            <div class="col-sm-10">
+                                <input type="text"
+                                       data-ng-model="vm.searchText"
+                                       data-ng-change="vm.searchTextChanged()"
+                                       class="novalidate form-control" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row cardContainer show-hide-animation" data-ng-hide="vm.listDisplayModeEnabled">
+                <div class="col-sm-6 col-md-4 col-lg-3" data-ng-class="vm.cardAnimationClass"
+                     data-ng-repeat="role in vm.filteredRoles | orderBy:'Name'">
+                    <div class="card">
+                        <button class="btn close cardClose" title="Xóa role" data-ng-click="vm.deleteRole(role.Id)">&times;</button>
+                        <div class="cardHeader"><a href="#/roleItem/{{role.Id}}" class="white">{{role.Name}} <i class="icon-edit icon-white editIcon"></i></a></div>
+                        <div class="cardBody">
+                            <div class="clearfix">
+                                <div class="pull-left cardBodyLeft">
+                                    <a href="#/roleItem/{{role.Id}}" class="white"><img data-ng-src="/Content/images/roleItem.png" class="cardImage" /></a>
+                                </div>
+                                <div class="pull-left cardBodyRight">
+                                    <div class="cardBodyContent">Khu vực: {{role.Area.Name}}</div>
+									<!-- [@DisplayViewCard]-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row gridContainer customersTable show-hide-animation" data-ng-show="vm.listDisplayModeEnabled">
+                <div class="col-md-10">
+                    <div>
+                        <table class="table table-striped table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>&nbsp;</th>
+									<!--[@TableHeaders]-->
+									<th data-ng-click="vm.setOrder('Name')">Name</th>
+									<th data-ng-click="vm.setOrder('Description')">Description</th>
+									<th data-ng-click="vm.setOrder('ManageUser')">ManageUser</th>
+									<th data-ng-click="vm.setOrder('ManageBusiness')">ManageBusiness</th>
+									<th data-ng-click="vm.setOrder('ManageMembershipPackage')">ManageMembershipPackage</th>
+									<th data-ng-click="vm.setOrder('Discriminator')">Discriminator</th>
+
+                                    <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-ng-repeat="role in vm.filteredRoles" class="repeat-animation">                                    
+									<td width="20px"><input type="checkbox"></td>
+									<!-- [@TableBodies] -->
+									<td>{{role.Name}}</td>
+									<td>{{role.Description}}</td>
+									<td>{{role.ManageUser}}</td>
+									<td>{{role.ManageBusiness}}</td>
+									<td>{{role.ManageMembershipPackage}}</td>
+									<td>{{role.Discriminator}}</td>
+
+
+                                    <td width="120px">
+										<button class="btn btn-edit" data-ng-click="vm.editRole(role.Id)">Sửa</button>
+										<button class="btn btn-danger" data-ng-click="vm.deleteRole(role.Id)">Xóa</button>
+									</td>                                    
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row show-hide-animation" data-ng-show="vm.filteredRoles.length == 0">
+                <div class="col-span-12">
+                    <h4>Không tìm thấy dữa liệu</h4>
+                </div>
+            </div>
+        </div>
+        <div class="row show-hide-animation" data-ng-show="vm.roles.length > 0">
+            <div class="col-md-12">
+                <div data-pagination
+                     data-on-select-page="vm.pageChanged(page)"
+                     data-total-items="vm.totalRecords"
+                     data-page="vm.currentPage"
+                     data-items-per-page="vm.pageSize"
+                     data-boundary-links="true"
+                     class="pagination-sm"></div>
+                <h5>Đang hiển thị {{ vm.filteredCount }} strong tổng số {{ vm.totalRecords}} bảng ghi</h5>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+<div class="view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span> {{vm.title}} BusinessLike</h3>
+        </header>
+        <form name="itemForm" novalidate>
+            <div class="businessLikeEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>{{BusinessLike}} <span data-ng-hide="vm.businessLike.id == 0">(<a style="font-size:12pt" href="#/businessLikeorders/{{vm.businessLike.id}}">View Orders</a>)</span></h4>
+                        <br />
+                    </div>
+                </div>
+					<!-- [@FormControls] -->		
+					<div class="row">
+					    <div class="col-md-2">
+					        Like:
+					    </div>
+					    <div class="col-md-10">
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="1"
+					                        data-ng-checked="vm.BusinessLike.Like == 'True'"
+					                        data-ng-model="vm.BusinessLike.Like" />
+					                <!-- Nam -->
+					            </label>
+					        </div>
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="0"
+					                        data-ng-checked="vm.BusinessLike.Like == 'False'"
+					                        data-ng-model="vm.BusinessLike.Like" />
+					                <!-- Nữ -->
+					                <br />
+					            </label>
+					        </div>
+					    </div>
+					</div>
+
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" data-ng-click="vm.saveBusinessLike()"
+                                ng-disabled="itemForm.$invalid || !itemForm.$dirty">
+                            {{vm.buttonText}}
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger" data-ng-if="vm.businessLike.id > 0" data-ng-click="vm.deleteBusinessLike()">Delete</button>
+                    </div>
+                </div>
+                <br />
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-success" data-ng-show="vm.updateStatus">
+                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;BusinessLike updated!
+                    </div>
+                </div>
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-important" data-ng-show="vm.errorMessage">
+                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ vm.errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

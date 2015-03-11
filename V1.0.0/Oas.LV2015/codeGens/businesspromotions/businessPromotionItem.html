@@ -1,0 +1,129 @@
+<div class="view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span> {{vm.title}} BusinessPromotion</h3>
+        </header>
+        <form name="itemForm" novalidate>
+            <div class="businessPromotionEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>{{BusinessPromotion}} <span data-ng-hide="vm.businessPromotion.id == 0">(<a style="font-size:12pt" href="#/businessPromotionorders/{{vm.businessPromotion.id}}">View Orders</a>)</span></h4>
+                        <br />
+                    </div>
+                </div>
+					<!-- [@FormControls] -->		
+					<div class="row">
+					    <div class="col-md-2">
+					       Description
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Description" class="form-control" data-ng-model="vm.BusinessPromotion.Description" required />
+					        <span class="errorMessage" ng-show="itemForm.Description.$touched && itemForm.Description.$invalid">
+					            Description is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         Discount
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="Discount" class="form-control" data-ng-model="vm.BusinessPromotion.Discount" required />
+					        <span class="errorMessage" ng-show="itemForm.Discount.$touched && itemForm.Discount.$invalid">
+					            Discount is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         StartDate
+					    </div>
+					    <div class="col-md-10">
+					        <input type="date" name="StartDate" class="form-control" data-ng-model="vm.BusinessPromotion.StartDate" required />
+					        <span class="errorMessage" ng-show="itemForm.StartDate.$touched && itemForm.StartDate.$invalid">
+					            StartDate is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         EndDate
+					    </div>
+					    <div class="col-md-10">
+					        <input type="date" name="EndDate" class="form-control" data-ng-model="vm.BusinessPromotion.EndDate" required />
+					        <span class="errorMessage" ng-show="itemForm.EndDate.$touched && itemForm.EndDate.$invalid">
+					            EndDate is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         Limitation
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="Limitation" class="form-control" data-ng-model="vm.BusinessPromotion.Limitation" required />
+					        <span class="errorMessage" ng-show="itemForm.Limitation.$touched && itemForm.Limitation.$invalid">
+					            Limitation is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         Viewed
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="Viewed" class="form-control" data-ng-model="vm.BusinessPromotion.Viewed" required />
+					        <span class="errorMessage" ng-show="itemForm.Viewed.$touched && itemForm.Viewed.$invalid">
+					            Viewed is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         Status
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="Status" class="form-control" data-ng-model="vm.BusinessPromotion.Status" required />
+					        <span class="errorMessage" ng-show="itemForm.Status.$touched && itemForm.Status.$invalid">
+					            Status is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       Title
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Title" class="form-control" data-ng-model="vm.BusinessPromotion.Title" required />
+					        <span class="errorMessage" ng-show="itemForm.Title.$touched && itemForm.Title.$invalid">
+					            Title is required
+					        </span>
+					    </div>
+					</div>
+
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" data-ng-click="vm.saveBusinessPromotion()"
+                                ng-disabled="itemForm.$invalid || !itemForm.$dirty">
+                            {{vm.buttonText}}
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger" data-ng-if="vm.businessPromotion.id > 0" data-ng-click="vm.deleteBusinessPromotion()">Delete</button>
+                    </div>
+                </div>
+                <br />
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-success" data-ng-show="vm.updateStatus">
+                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;BusinessPromotion updated!
+                    </div>
+                </div>
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-important" data-ng-show="vm.errorMessage">
+                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ vm.errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,133 @@
+<div class="view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span> {{vm.title}} Setting</h3>
+        </header>
+        <form name="itemForm" novalidate>
+            <div class="settingEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>{{Setting}} <span data-ng-hide="vm.setting.id == 0">(<a style="font-size:12pt" href="#/settingorders/{{vm.setting.id}}">View Orders</a>)</span></h4>
+                        <br />
+                    </div>
+                </div>
+					<!-- [@FormControls] -->		
+					<div class="row">
+					    <div class="col-md-2">
+					       DefaultGLng
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="DefaultGLng" class="form-control" data-ng-model="vm.Setting.DefaultGLng" required />
+					        <span class="errorMessage" ng-show="itemForm.DefaultGLng.$touched && itemForm.DefaultGLng.$invalid">
+					            DefaultGLng is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       DefaultGLa
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="DefaultGLa" class="form-control" data-ng-model="vm.Setting.DefaultGLa" required />
+					        <span class="errorMessage" ng-show="itemForm.DefaultGLa.$touched && itemForm.DefaultGLa.$invalid">
+					            DefaultGLa is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         DefaultRadius
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="DefaultRadius" class="form-control" data-ng-model="vm.Setting.DefaultRadius" required />
+					        <span class="errorMessage" ng-show="itemForm.DefaultRadius.$touched && itemForm.DefaultRadius.$invalid">
+					            DefaultRadius is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					        IsEnableChat:
+					    </div>
+					    <div class="col-md-10">
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="1"
+					                        data-ng-checked="vm.Setting.IsEnableChat == 'True'"
+					                        data-ng-model="vm.Setting.IsEnableChat" />
+					                <!-- Nam -->
+					            </label>
+					        </div>
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="0"
+					                        data-ng-checked="vm.Setting.IsEnableChat == 'False'"
+					                        data-ng-model="vm.Setting.IsEnableChat" />
+					                <!-- Nữ -->
+					                <br />
+					            </label>
+					        </div>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         DefaultZoom
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="DefaultZoom" class="form-control" data-ng-model="vm.Setting.DefaultZoom" required />
+					        <span class="errorMessage" ng-show="itemForm.DefaultZoom.$touched && itemForm.DefaultZoom.$invalid">
+					            DefaultZoom is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					        AllowLocationTracking:
+					    </div>
+					    <div class="col-md-10">
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="1"
+					                        data-ng-checked="vm.Setting.AllowLocationTracking == 'True'"
+					                        data-ng-model="vm.Setting.AllowLocationTracking" />
+					                <!-- Nam -->
+					            </label>
+					        </div>
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="0"
+					                        data-ng-checked="vm.Setting.AllowLocationTracking == 'False'"
+					                        data-ng-model="vm.Setting.AllowLocationTracking" />
+					                <!-- Nữ -->
+					                <br />
+					            </label>
+					        </div>
+					    </div>
+					</div>
+
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" data-ng-click="vm.saveSetting()"
+                                ng-disabled="itemForm.$invalid || !itemForm.$dirty">
+                            {{vm.buttonText}}
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger" data-ng-if="vm.setting.id > 0" data-ng-click="vm.deleteSetting()">Delete</button>
+                    </div>
+                </div>
+                <br />
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-success" data-ng-show="vm.updateStatus">
+                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;Setting updated!
+                    </div>
+                </div>
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-important" data-ng-show="vm.errorMessage">
+                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ vm.errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

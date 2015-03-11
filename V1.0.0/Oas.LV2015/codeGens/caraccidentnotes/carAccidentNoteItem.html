@@ -1,0 +1,63 @@
+<div class="view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span> {{vm.title}} CarAccidentNote</h3>
+        </header>
+        <form name="itemForm" novalidate>
+            <div class="carAccidentNoteEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>{{CarAccidentNote}} <span data-ng-hide="vm.carAccidentNote.id == 0">(<a style="font-size:12pt" href="#/carAccidentNoteorders/{{vm.carAccidentNote.id}}">View Orders</a>)</span></h4>
+                        <br />
+                    </div>
+                </div>
+					<!-- [@FormControls] -->		
+					<div class="row">
+					    <div class="col-md-2">
+					       Title
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Title" class="form-control" data-ng-model="vm.CarAccidentNote.Title" required />
+					        <span class="errorMessage" ng-show="itemForm.Title.$touched && itemForm.Title.$invalid">
+					            Title is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       Description
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Description" class="form-control" data-ng-model="vm.CarAccidentNote.Description" required />
+					        <span class="errorMessage" ng-show="itemForm.Description.$touched && itemForm.Description.$invalid">
+					            Description is required
+					        </span>
+					    </div>
+					</div>
+
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" data-ng-click="vm.saveCarAccidentNote()"
+                                ng-disabled="itemForm.$invalid || !itemForm.$dirty">
+                            {{vm.buttonText}}
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger" data-ng-if="vm.carAccidentNote.id > 0" data-ng-click="vm.deleteCarAccidentNote()">Delete</button>
+                    </div>
+                </div>
+                <br />
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-success" data-ng-show="vm.updateStatus">
+                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;CarAccidentNote updated!
+                    </div>
+                </div>
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-important" data-ng-show="vm.errorMessage">
+                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ vm.errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

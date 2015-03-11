@@ -1,0 +1,96 @@
+<div class="view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span> {{vm.title}} UserApplication</h3>
+        </header>
+        <form name="itemForm" novalidate>
+            <div class="userApplicationEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>{{UserApplication}} <span data-ng-hide="vm.userApplication.id == 0">(<a style="font-size:12pt" href="#/userApplicationorders/{{vm.userApplication.id}}">View Orders</a>)</span></h4>
+                        <br />
+                    </div>
+                </div>
+					<!-- [@FormControls] -->		
+					<div class="row">
+					    <div class="col-md-2">
+					         Price
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="Price" class="form-control" data-ng-model="vm.UserApplication.Price" required />
+					        <span class="errorMessage" ng-show="itemForm.Price.$touched && itemForm.Price.$invalid">
+					            Price is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         Status
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="Status" class="form-control" data-ng-model="vm.UserApplication.Status" required />
+					        <span class="errorMessage" ng-show="itemForm.Status.$touched && itemForm.Status.$invalid">
+					            Status is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         CreatedDate
+					    </div>
+					    <div class="col-md-10">
+					        <input type="date" name="CreatedDate" class="form-control" data-ng-model="vm.UserApplication.CreatedDate" required />
+					        <span class="errorMessage" ng-show="itemForm.CreatedDate.$touched && itemForm.CreatedDate.$invalid">
+					            CreatedDate is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       CreateBy
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="CreateBy" class="form-control" data-ng-model="vm.UserApplication.CreateBy" required />
+					        <span class="errorMessage" ng-show="itemForm.CreateBy.$touched && itemForm.CreateBy.$invalid">
+					            CreateBy is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         ExpireDate
+					    </div>
+					    <div class="col-md-10">
+					        <input type="date" name="ExpireDate" class="form-control" data-ng-model="vm.UserApplication.ExpireDate" required />
+					        <span class="errorMessage" ng-show="itemForm.ExpireDate.$touched && itemForm.ExpireDate.$invalid">
+					            ExpireDate is required
+					        </span>
+					    </div>
+					</div>
+
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" data-ng-click="vm.saveUserApplication()"
+                                ng-disabled="itemForm.$invalid || !itemForm.$dirty">
+                            {{vm.buttonText}}
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger" data-ng-if="vm.userApplication.id > 0" data-ng-click="vm.deleteUserApplication()">Delete</button>
+                    </div>
+                </div>
+                <br />
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-success" data-ng-show="vm.updateStatus">
+                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;UserApplication updated!
+                    </div>
+                </div>
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-important" data-ng-show="vm.errorMessage">
+                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ vm.errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

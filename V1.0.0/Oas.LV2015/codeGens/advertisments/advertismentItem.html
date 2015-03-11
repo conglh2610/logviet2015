@@ -1,0 +1,142 @@
+<div class="view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span> {{vm.title}} Advertisment</h3>
+        </header>
+        <form name="itemForm" novalidate>
+            <div class="advertismentEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>{{Advertisment}} <span data-ng-hide="vm.advertisment.id == 0">(<a style="font-size:12pt" href="#/advertismentorders/{{vm.advertisment.id}}">View Orders</a>)</span></h4>
+                        <br />
+                    </div>
+                </div>
+					<!-- [@FormControls] -->		
+					<div class="row">
+					    <div class="col-md-2">
+					       CustomerName
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="CustomerName" class="form-control" data-ng-model="vm.Advertisment.CustomerName" required />
+					        <span class="errorMessage" ng-show="itemForm.CustomerName.$touched && itemForm.CustomerName.$invalid">
+					            CustomerName is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					        IsActive:
+					    </div>
+					    <div class="col-md-10">
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="1"
+					                        data-ng-checked="vm.Advertisment.IsActive == 'True'"
+					                        data-ng-model="vm.Advertisment.IsActive" />
+					                <!-- Nam -->
+					            </label>
+					        </div>
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="0"
+					                        data-ng-checked="vm.Advertisment.IsActive == 'False'"
+					                        data-ng-model="vm.Advertisment.IsActive" />
+					                <!-- Nữ -->
+					                <br />
+					            </label>
+					        </div>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       ImageUrl
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="ImageUrl" class="form-control" data-ng-model="vm.Advertisment.ImageUrl" required />
+					        <span class="errorMessage" ng-show="itemForm.ImageUrl.$touched && itemForm.ImageUrl.$invalid">
+					            ImageUrl is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       Url
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Url" class="form-control" data-ng-model="vm.Advertisment.Url" required />
+					        <span class="errorMessage" ng-show="itemForm.Url.$touched && itemForm.Url.$invalid">
+					            Url is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       Description
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Description" class="form-control" data-ng-model="vm.Advertisment.Description" required />
+					        <span class="errorMessage" ng-show="itemForm.Description.$touched && itemForm.Description.$invalid">
+					            Description is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         ClickCost
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="ClickCost" class="form-control" data-ng-model="vm.Advertisment.ClickCost" required />
+					        <span class="errorMessage" ng-show="itemForm.ClickCost.$touched && itemForm.ClickCost.$invalid">
+					            ClickCost is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         Position
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="Position" class="form-control" data-ng-model="vm.Advertisment.Position" required />
+					        <span class="errorMessage" ng-show="itemForm.Position.$touched && itemForm.Position.$invalid">
+					            Position is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         TotalClicked
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="TotalClicked" class="form-control" data-ng-model="vm.Advertisment.TotalClicked" required />
+					        <span class="errorMessage" ng-show="itemForm.TotalClicked.$touched && itemForm.TotalClicked.$invalid">
+					            TotalClicked is required
+					        </span>
+					    </div>
+					</div>
+
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" data-ng-click="vm.saveAdvertisment()"
+                                ng-disabled="itemForm.$invalid || !itemForm.$dirty">
+                            {{vm.buttonText}}
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger" data-ng-if="vm.advertisment.id > 0" data-ng-click="vm.deleteAdvertisment()">Delete</button>
+                    </div>
+                </div>
+                <br />
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-success" data-ng-show="vm.updateStatus">
+                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;Advertisment updated!
+                    </div>
+                </div>
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-important" data-ng-show="vm.errorMessage">
+                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ vm.errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

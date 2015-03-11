@@ -1,0 +1,87 @@
+<div class="view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span> {{vm.title}} Image</h3>
+        </header>
+        <form name="itemForm" novalidate>
+            <div class="imageEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>{{Image}} <span data-ng-hide="vm.image.id == 0">(<a style="font-size:12pt" href="#/imageorders/{{vm.image.id}}">View Orders</a>)</span></h4>
+                        <br />
+                    </div>
+                </div>
+					<!-- [@FormControls] -->		
+					<div class="row">
+					    <div class="col-md-2">
+					       Caption
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Caption" class="form-control" data-ng-model="vm.Image.Caption" required />
+					        <span class="errorMessage" ng-show="itemForm.Caption.$touched && itemForm.Caption.$invalid">
+					            Caption is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       Url
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Url" class="form-control" data-ng-model="vm.Image.Url" required />
+					        <span class="errorMessage" ng-show="itemForm.Url.$touched && itemForm.Url.$invalid">
+					            Url is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					        IsProfileImage:
+					    </div>
+					    <div class="col-md-10">
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="1"
+					                        data-ng-checked="vm.Image.IsProfileImage == 'True'"
+					                        data-ng-model="vm.Image.IsProfileImage" />
+					                <!-- Nam -->
+					            </label>
+					        </div>
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="0"
+					                        data-ng-checked="vm.Image.IsProfileImage == 'False'"
+					                        data-ng-model="vm.Image.IsProfileImage" />
+					                <!-- Nữ -->
+					                <br />
+					            </label>
+					        </div>
+					    </div>
+					</div>
+
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" data-ng-click="vm.saveImage()"
+                                ng-disabled="itemForm.$invalid || !itemForm.$dirty">
+                            {{vm.buttonText}}
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger" data-ng-if="vm.image.id > 0" data-ng-click="vm.deleteImage()">Delete</button>
+                    </div>
+                </div>
+                <br />
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-success" data-ng-show="vm.updateStatus">
+                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;Image updated!
+                    </div>
+                </div>
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-important" data-ng-show="vm.errorMessage">
+                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ vm.errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

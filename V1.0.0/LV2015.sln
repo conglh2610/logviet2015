@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LV2015.Tests", "LV2015.Tests\LV2015.Tests.csproj", "{5BE3EFE1-B8C5-42D0-B1DC-FEC206477D8A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{1393B5F0-D970-4627-B379-B25A7D747F0B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{6F2318B8-A1D9-4156-80DB-185478FF2F17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oas.Infrastructure", "Modules\Oas.Infrastructure\Oas.Infrastructure.csproj", "{2AEDDE8C-CA12-49A3-96F1-60762EA0C759}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{0DF6EFCE-30F2-4964-AD08-1D91FA56E4A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oas.LV2015", "Oas.LV2015\Oas.LV2015.csproj", "{2F2D68E8-3DA7-4EFD-B1FA-9FE9EB86B5E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{F7AFC566-9779-42C8-BCF1-06DBADC8C2FF}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tdevs.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = LV2015.Tests\\LV2015.Tests.csproj
+		SccProjectTopLevelParentUniqueName1 = LV2015.sln
+		SccProjectName1 = LV2015.Tests
+		SccLocalPath1 = LV2015.Tests
+		SccProjectUniqueName2 = Modules\\Oas.Infrastructure\\Oas.Infrastructure.csproj
+		SccProjectTopLevelParentUniqueName2 = LV2015.sln
+		SccProjectName2 = Modules/Oas.Infrastructure
+		SccLocalPath2 = Modules\\Oas.Infrastructure
+		SccProjectUniqueName3 = Oas.LV2015\\Oas.LV2015.csproj
+		SccProjectTopLevelParentUniqueName3 = LV2015.sln
+		SccProjectName3 = Oas.LV2015
+		SccLocalPath3 = Oas.LV2015
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5BE3EFE1-B8C5-42D0-B1DC-FEC206477D8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BE3EFE1-B8C5-42D0-B1DC-FEC206477D8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BE3EFE1-B8C5-42D0-B1DC-FEC206477D8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BE3EFE1-B8C5-42D0-B1DC-FEC206477D8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AEDDE8C-CA12-49A3-96F1-60762EA0C759}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AEDDE8C-CA12-49A3-96F1-60762EA0C759}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AEDDE8C-CA12-49A3-96F1-60762EA0C759}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AEDDE8C-CA12-49A3-96F1-60762EA0C759}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F2D68E8-3DA7-4EFD-B1FA-9FE9EB86B5E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F2D68E8-3DA7-4EFD-B1FA-9FE9EB86B5E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F2D68E8-3DA7-4EFD-B1FA-9FE9EB86B5E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F2D68E8-3DA7-4EFD-B1FA-9FE9EB86B5E1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5BE3EFE1-B8C5-42D0-B1DC-FEC206477D8A} = {0DF6EFCE-30F2-4964-AD08-1D91FA56E4A3}
+		{2F2D68E8-3DA7-4EFD-B1FA-9FE9EB86B5E1} = {1393B5F0-D970-4627-B379-B25A7D747F0B}
+		{2AEDDE8C-CA12-49A3-96F1-60762EA0C759} = {6F2318B8-A1D9-4156-80DB-185478FF2F17}
+	EndGlobalSection
+EndGlobal

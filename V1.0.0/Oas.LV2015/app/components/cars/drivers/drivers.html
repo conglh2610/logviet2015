@@ -1,0 +1,124 @@
+﻿<div class="driver view indent">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-user"></span> Danh sách tài xế </h3>
+        </header>
+        <div class="row">
+            <div class="col-md-10">
+                <div class="navbar">
+                    <ul class="nav navbar-nav">
+                        <li data-ng-class="{active: !vm.listDisplayModeEnabled}" class="toolbaritem">
+                            <a data-ng-click="vm.changeDisplayMode(vm.DisplayModeEnum.Card)">
+                                <span class="glyphicon glyphicon-th-large"></span> Card View
+                            </a>
+                        </li>
+                        <li data-ng-class="{active: vm.listDisplayModeEnabled}" class="toolbaritem">
+                            <a data-ng-click="vm.changeDisplayMode(vm.DisplayModeEnum.List)">
+                                <span class="glyphicon glyphicon-align-justify"></span> List View
+                            </a>
+                        </li>
+                        <li class="toolbaritem">
+                            <a data-ng-click="vm.navigate('/driveritem/0')">
+                                <span class="glyphicon glyphicon-plus"></span> Thêm mới tài xế
+                            </a>
+                        </li>
+                    </ul>
+                    <form class="navbar-form navbar-right">
+                        <div class="form-group">
+                            <label class="navbarText col-sm-2">Search:</label>
+                            <div class="col-sm-10">
+                                <input type="text"
+                                       ng-keypress="($event.which === 13)?vm.searchTextChanged():0"
+                                       data-ng-model=" vm.searchtext"
+                                       class="novalidate form-control" />
+                                <a ng-click="vm.searchTextChanged()" class="btn btn-info btn-md"><span class="glyphicon glyphicon-search"></span> Search</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row cardContainer show-hide-animation" data-ng-hide="vm.listDisplayModeEnabled">
+                <div class="col-sm-6 col-md-4 col-lg-3" data-ng-class="vm.cardAnimationClass"
+                     data-ng-repeat="driver in vm.drivers | orderBy:'lastName'">
+                    <div class="card">
+                        <button class="btn close cardClose" title="Delete Customer" data-ng-click="vm.deleteDriver(driver.Id)">&times;</button>
+                        <div class="cardHeader"><a href="#/driveritem/{{driver.Id}}" class="white">{{driver.Name}} <i class="icon-edit icon-white editIcon"></i></a></div>
+                        <div class="cardBody">
+                            <div class="clearfix">
+                                   <div class="pull-left cardBodyRight">
+                                    <div class="cardBodyContent">{{driver.Address}}</div>
+                                    <div class="cardBodyContent">{{driver.Phone}}</div>
+                                    <div class="cardBodyContent">{{driver.DriverLevel}}</div>
+                                    <div class="cardBodyContent">{{driver.DriverLicense}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row gridContainer customersTable show-hide-animation" data-ng-show="vm.listDisplayModeEnabled">
+                <div class="col-md-10">
+                    <div>
+                        <table class="table table-striped table-condensed">
+                            <thead>
+                                <tr>
+                                    <th data-ng-click="vm.setOrder('name')">Tên tài xế</th>
+                                    <th data-ng-click="vm.setOrder('address')">Địa chỉ</th>
+                                    <th data-ng-click="vm.setOrder('phone')">Số điện thoại</th>
+                                    <th data-ng-click="vm.setOrder('driverlevel')">Trình độ</th>
+                                    <th data-ng-click="vm.setOrder('driverlicense')">Giấy phép lái xe</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-ng-repeat="driver in vm.drivers | orderBy:vm.columnName:vm.sortDirection" class="repeat-animation">
+                                    <td><a href="#/driveritem/{{driver.Id}}">{{driver.Name}}</a></td>
+                                    <td>{{driver.Address}}</td>
+                                    <td>{{driver.Phone}}</td>
+                                    <td>{{driver.DriverLevel}}</td>
+                                    <td>{{driver.DriverLicense}}</td>
+                                    <td>
+                                        <a href="#/sudentclasses/{{driver.id}}" class="btn-link">
+                                            {{ driver.classCount }}
+                                            <span data-ng-pluralize count="driver.classCount"
+                                                  when="{'1': 'Class','other': 'Classes'}">
+                                            </span>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-danger" data-ng-click="vm.deleteDriver(driver.Id)">Xóa</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row show-hide-animation" data-ng-show="vm.drivers.length == 0">
+                <div class="col-span-12">
+                    <h4>Không tìm thấy tài xế!</h4>
+                </div>
+            </div>
+        </div>
+        <div class="row show-hide-animation" data-ng-show="vm.drivers.length > 0">
+            <div class="col-md-12">
+                <div data-pagination
+                     data-on-select-page="vm.pageChanged(page)"
+                     data-total-items="vm.totalRecords"
+                     data-page="vm.currentPage"
+                     data-items-per-page="vm.itemPerPage"
+                     data-boundary-links="true"
+                     class="pagination-sm"></div>
+                <h5>Hiển thị {{ vm.drivers.length }} trong tổng số {{ vm.totalRecords}} tài xế</h5>
+            </div>
+        </div>
+        <br /><br /><br />
+    </div>
+
+</div>
+

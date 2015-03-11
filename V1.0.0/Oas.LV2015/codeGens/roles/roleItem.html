@@ -1,0 +1,146 @@
+<div class="view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span> {{vm.title}} Role</h3>
+        </header>
+        <form name="itemForm" novalidate>
+            <div class="roleEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>{{Role}} <span data-ng-hide="vm.role.id == 0">(<a style="font-size:12pt" href="#/roleorders/{{vm.role.id}}">View Orders</a>)</span></h4>
+                        <br />
+                    </div>
+                </div>
+					<!-- [@FormControls] -->		
+					<div class="row">
+					    <div class="col-md-2">
+					       Name
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Name" class="form-control" data-ng-model="vm.Role.Name" required />
+					        <span class="errorMessage" ng-show="itemForm.Name.$touched && itemForm.Name.$invalid">
+					            Name is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       Description
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Description" class="form-control" data-ng-model="vm.Role.Description" required />
+					        <span class="errorMessage" ng-show="itemForm.Description.$touched && itemForm.Description.$invalid">
+					            Description is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					        ManageUser:
+					    </div>
+					    <div class="col-md-10">
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="1"
+					                        data-ng-checked="vm.Role.ManageUser == 'True'"
+					                        data-ng-model="vm.Role.ManageUser" />
+					                <!-- Nam -->
+					            </label>
+					        </div>
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="0"
+					                        data-ng-checked="vm.Role.ManageUser == 'False'"
+					                        data-ng-model="vm.Role.ManageUser" />
+					                <!-- Nữ -->
+					                <br />
+					            </label>
+					        </div>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					        ManageBusiness:
+					    </div>
+					    <div class="col-md-10">
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="1"
+					                        data-ng-checked="vm.Role.ManageBusiness == 'True'"
+					                        data-ng-model="vm.Role.ManageBusiness" />
+					                <!-- Nam -->
+					            </label>
+					        </div>
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="0"
+					                        data-ng-checked="vm.Role.ManageBusiness == 'False'"
+					                        data-ng-model="vm.Role.ManageBusiness" />
+					                <!-- Nữ -->
+					                <br />
+					            </label>
+					        </div>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					        ManageMembershipPackage:
+					    </div>
+					    <div class="col-md-10">
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="1"
+					                        data-ng-checked="vm.Role.ManageMembershipPackage == 'True'"
+					                        data-ng-model="vm.Role.ManageMembershipPackage" />
+					                <!-- Nam -->
+					            </label>
+					        </div>
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="0"
+					                        data-ng-checked="vm.Role.ManageMembershipPackage == 'False'"
+					                        data-ng-model="vm.Role.ManageMembershipPackage" />
+					                <!-- Nữ -->
+					                <br />
+					            </label>
+					        </div>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       Discriminator
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Discriminator" class="form-control" data-ng-model="vm.Role.Discriminator" required />
+					        <span class="errorMessage" ng-show="itemForm.Discriminator.$touched && itemForm.Discriminator.$invalid">
+					            Discriminator is required
+					        </span>
+					    </div>
+					</div>
+
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" data-ng-click="vm.saveRole()"
+                                ng-disabled="itemForm.$invalid || !itemForm.$dirty">
+                            {{vm.buttonText}}
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger" data-ng-if="vm.role.id > 0" data-ng-click="vm.deleteRole()">Delete</button>
+                    </div>
+                </div>
+                <br />
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-success" data-ng-show="vm.updateStatus">
+                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;Role updated!
+                    </div>
+                </div>
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-important" data-ng-show="vm.errorMessage">
+                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ vm.errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+<div class="view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span> {{vm.title}} MessageHistory</h3>
+        </header>
+        <form name="itemForm" novalidate>
+            <div class="messageHistoryEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>{{MessageHistory}} <span data-ng-hide="vm.messageHistory.id == 0">(<a style="font-size:12pt" href="#/messageHistoryorders/{{vm.messageHistory.id}}">View Orders</a>)</span></h4>
+                        <br />
+                    </div>
+                </div>
+					<!-- [@FormControls] -->		
+					<div class="row">
+					    <div class="col-md-2">
+					       Message
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Message" class="form-control" data-ng-model="vm.MessageHistory.Message" required />
+					        <span class="errorMessage" ng-show="itemForm.Message.$touched && itemForm.Message.$invalid">
+					            Message is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         Status
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="Status" class="form-control" data-ng-model="vm.MessageHistory.Status" required />
+					        <span class="errorMessage" ng-show="itemForm.Status.$touched && itemForm.Status.$invalid">
+					            Status is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         CreateDate
+					    </div>
+					    <div class="col-md-10">
+					        <input type="date" name="CreateDate" class="form-control" data-ng-model="vm.MessageHistory.CreateDate" required />
+					        <span class="errorMessage" ng-show="itemForm.CreateDate.$touched && itemForm.CreateDate.$invalid">
+					            CreateDate is required
+					        </span>
+					    </div>
+					</div>
+
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" data-ng-click="vm.saveMessageHistory()"
+                                ng-disabled="itemForm.$invalid || !itemForm.$dirty">
+                            {{vm.buttonText}}
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger" data-ng-if="vm.messageHistory.id > 0" data-ng-click="vm.deleteMessageHistory()">Delete</button>
+                    </div>
+                </div>
+                <br />
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-success" data-ng-show="vm.updateStatus">
+                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;MessageHistory updated!
+                    </div>
+                </div>
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-important" data-ng-show="vm.errorMessage">
+                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ vm.errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,133 @@
+<div class="view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span> {{vm.title}} Car</h3>
+        </header>
+        <form name="itemForm" novalidate>
+            <div class="carEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>{{Car}} <span data-ng-hide="vm.car.id == 0">(<a style="font-size:12pt" href="#/carorders/{{vm.car.id}}">View Orders</a>)</span></h4>
+                        <br />
+                    </div>
+                </div>
+					<!-- [@FormControls] -->		
+					<div class="row">
+					    <div class="col-md-2">
+					       Name
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Name" class="form-control" data-ng-model="vm.Car.Name" required />
+					        <span class="errorMessage" ng-show="itemForm.Name.$touched && itemForm.Name.$invalid">
+					            Name is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       Year
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Year" class="form-control" data-ng-model="vm.Car.Year" required />
+					        <span class="errorMessage" ng-show="itemForm.Year.$touched && itemForm.Year.$invalid">
+					            Year is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       Description
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Description" class="form-control" data-ng-model="vm.Car.Description" required />
+					        <span class="errorMessage" ng-show="itemForm.Description.$touched && itemForm.Description.$invalid">
+					            Description is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					        IsMT:
+					    </div>
+					    <div class="col-md-10">
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="1"
+					                        data-ng-checked="vm.Car.IsMT == 'True'"
+					                        data-ng-model="vm.Car.IsMT" />
+					                <!-- Nam -->
+					            </label>
+					        </div>
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="0"
+					                        data-ng-checked="vm.Car.IsMT == 'False'"
+					                        data-ng-model="vm.Car.IsMT" />
+					                <!-- Nữ -->
+					                <br />
+					            </label>
+					        </div>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					        IsAT:
+					    </div>
+					    <div class="col-md-10">
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="1"
+					                        data-ng-checked="vm.Car.IsAT == 'True'"
+					                        data-ng-model="vm.Car.IsAT" />
+					                <!-- Nam -->
+					            </label>
+					        </div>
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="0"
+					                        data-ng-checked="vm.Car.IsAT == 'False'"
+					                        data-ng-model="vm.Car.IsAT" />
+					                <!-- Nữ -->
+					                <br />
+					            </label>
+					        </div>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         TotalOfSeating
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="TotalOfSeating" class="form-control" data-ng-model="vm.Car.TotalOfSeating" required />
+					        <span class="errorMessage" ng-show="itemForm.TotalOfSeating.$touched && itemForm.TotalOfSeating.$invalid">
+					            TotalOfSeating is required
+					        </span>
+					    </div>
+					</div>
+
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" data-ng-click="vm.saveCar()"
+                                ng-disabled="itemForm.$invalid || !itemForm.$dirty">
+                            {{vm.buttonText}}
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger" data-ng-if="vm.car.id > 0" data-ng-click="vm.deleteCar()">Delete</button>
+                    </div>
+                </div>
+                <br />
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-success" data-ng-show="vm.updateStatus">
+                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;Car updated!
+                    </div>
+                </div>
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-important" data-ng-show="vm.errorMessage">
+                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ vm.errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

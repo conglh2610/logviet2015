@@ -1,0 +1,63 @@
+<div class="view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span> {{vm.title}} Result</h3>
+        </header>
+        <form name="itemForm" novalidate>
+            <div class="resultEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>{{Result}} <span data-ng-hide="vm.result.id == 0">(<a style="font-size:12pt" href="#/resultorders/{{vm.result.id}}">View Orders</a>)</span></h4>
+                        <br />
+                    </div>
+                </div>
+					<!-- [@FormControls] -->		
+					<div class="row">
+					    <div class="col-md-2">
+					         Score
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="Score" class="form-control" data-ng-model="vm.Result.Score" required />
+					        <span class="errorMessage" ng-show="itemForm.Score.$touched && itemForm.Score.$invalid">
+					            Score is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         CreateDate
+					    </div>
+					    <div class="col-md-10">
+					        <input type="date" name="CreateDate" class="form-control" data-ng-model="vm.Result.CreateDate" required />
+					        <span class="errorMessage" ng-show="itemForm.CreateDate.$touched && itemForm.CreateDate.$invalid">
+					            CreateDate is required
+					        </span>
+					    </div>
+					</div>
+
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" data-ng-click="vm.saveResult()"
+                                ng-disabled="itemForm.$invalid || !itemForm.$dirty">
+                            {{vm.buttonText}}
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger" data-ng-if="vm.result.id > 0" data-ng-click="vm.deleteResult()">Delete</button>
+                    </div>
+                </div>
+                <br />
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-success" data-ng-show="vm.updateStatus">
+                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;Result updated!
+                    </div>
+                </div>
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-important" data-ng-show="vm.errorMessage">
+                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ vm.errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

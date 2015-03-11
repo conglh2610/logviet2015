@@ -1,0 +1,254 @@
+<div class="view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span> {{vm.title}} Business</h3>
+        </header>
+        <form name="itemForm" novalidate>
+            <div class="businessEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>{{Business}} <span data-ng-hide="vm.business.id == 0">(<a style="font-size:12pt" href="#/businessorders/{{vm.business.id}}">View Orders</a>)</span></h4>
+                        <br />
+                    </div>
+                </div>
+					<!-- [@FormControls] -->		
+					<div class="row">
+					    <div class="col-md-2">
+					        UpdatedDate:
+					    </div>
+					    <div class="col-md-10">
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="1"
+					                        data-ng-checked="vm.Business.UpdatedDate == 'True'"
+					                        data-ng-model="vm.Business.UpdatedDate" />
+					                <!-- Nam -->
+					            </label>
+					        </div>
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="0"
+					                        data-ng-checked="vm.Business.UpdatedDate == 'False'"
+					                        data-ng-model="vm.Business.UpdatedDate" />
+					                <!-- Nữ -->
+					                <br />
+					            </label>
+					        </div>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       Zipcode
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Zipcode" class="form-control" data-ng-model="vm.Business.Zipcode" required />
+					        <span class="errorMessage" ng-show="itemForm.Zipcode.$touched && itemForm.Zipcode.$invalid">
+					            Zipcode is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       Name
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Name" class="form-control" data-ng-model="vm.Business.Name" required />
+					        <span class="errorMessage" ng-show="itemForm.Name.$touched && itemForm.Name.$invalid">
+					            Name is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       Address
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Address" class="form-control" data-ng-model="vm.Business.Address" required />
+					        <span class="errorMessage" ng-show="itemForm.Address.$touched && itemForm.Address.$invalid">
+					            Address is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       Phone
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Phone" class="form-control" data-ng-model="vm.Business.Phone" required />
+					        <span class="errorMessage" ng-show="itemForm.Phone.$touched && itemForm.Phone.$invalid">
+					            Phone is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       Email
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Email" class="form-control" data-ng-model="vm.Business.Email" required />
+					        <span class="errorMessage" ng-show="itemForm.Email.$touched && itemForm.Email.$invalid">
+					            Email is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       Information
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Information" class="form-control" data-ng-model="vm.Business.Information" required />
+					        <span class="errorMessage" ng-show="itemForm.Information.$touched && itemForm.Information.$invalid">
+					            Information is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       SortDescription
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="SortDescription" class="form-control" data-ng-model="vm.Business.SortDescription" required />
+					        <span class="errorMessage" ng-show="itemForm.SortDescription.$touched && itemForm.SortDescription.$invalid">
+					            SortDescription is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       Facebook
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Facebook" class="form-control" data-ng-model="vm.Business.Facebook" required />
+					        <span class="errorMessage" ng-show="itemForm.Facebook.$touched && itemForm.Facebook.$invalid">
+					            Facebook is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       Twitter
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Twitter" class="form-control" data-ng-model="vm.Business.Twitter" required />
+					        <span class="errorMessage" ng-show="itemForm.Twitter.$touched && itemForm.Twitter.$invalid">
+					            Twitter is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         Status
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="Status" class="form-control" data-ng-model="vm.Business.Status" required />
+					        <span class="errorMessage" ng-show="itemForm.Status.$touched && itemForm.Status.$invalid">
+					            Status is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         Latitude
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="Latitude" class="form-control" data-ng-model="vm.Business.Latitude" required />
+					        <span class="errorMessage" ng-show="itemForm.Latitude.$touched && itemForm.Latitude.$invalid">
+					            Latitude is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         Longtitude
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="Longtitude" class="form-control" data-ng-model="vm.Business.Longtitude" required />
+					        <span class="errorMessage" ng-show="itemForm.Longtitude.$touched && itemForm.Longtitude.$invalid">
+					            Longtitude is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					        Active:
+					    </div>
+					    <div class="col-md-10">
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="1"
+					                        data-ng-checked="vm.Business.Active == 'True'"
+					                        data-ng-model="vm.Business.Active" />
+					                <!-- Nam -->
+					            </label>
+					        </div>
+					        <div class="radio">
+					            <label class="radio">
+					                <input type="radio" name="gender" value="0"
+					                        data-ng-checked="vm.Business.Active == 'False'"
+					                        data-ng-model="vm.Business.Active" />
+					                <!-- Nữ -->
+					                <br />
+					            </label>
+					        </div>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         CreateDate
+					    </div>
+					    <div class="col-md-10">
+					        <input type="date" name="CreateDate" class="form-control" data-ng-model="vm.Business.CreateDate" required />
+					        <span class="errorMessage" ng-show="itemForm.CreateDate.$touched && itemForm.CreateDate.$invalid">
+					            CreateDate is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       CreateBy
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="CreateBy" class="form-control" data-ng-model="vm.Business.CreateBy" required />
+					        <span class="errorMessage" ng-show="itemForm.CreateBy.$touched && itemForm.CreateBy.$invalid">
+					            CreateBy is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         TotalViewed
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="TotalViewed" class="form-control" data-ng-model="vm.Business.TotalViewed" required />
+					        <span class="errorMessage" ng-show="itemForm.TotalViewed.$touched && itemForm.TotalViewed.$invalid">
+					            TotalViewed is required
+					        </span>
+					    </div>
+					</div>
+
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" data-ng-click="vm.saveBusiness()"
+                                ng-disabled="itemForm.$invalid || !itemForm.$dirty">
+                            {{vm.buttonText}}
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger" data-ng-if="vm.business.id > 0" data-ng-click="vm.deleteBusiness()">Delete</button>
+                    </div>
+                </div>
+                <br />
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-success" data-ng-show="vm.updateStatus">
+                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;Business updated!
+                    </div>
+                </div>
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-important" data-ng-show="vm.errorMessage">
+                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ vm.errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

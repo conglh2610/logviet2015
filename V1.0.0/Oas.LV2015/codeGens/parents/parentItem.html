@@ -1,0 +1,162 @@
+<div class="view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span> {{vm.title}} Parent</h3>
+        </header>
+        <form name="itemForm" novalidate>
+            <div class="parentEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>{{Parent}} <span data-ng-hide="vm.parent.id == 0">(<a style="font-size:12pt" href="#/parentorders/{{vm.parent.id}}">View Orders</a>)</span></h4>
+                        <br />
+                    </div>
+                </div>
+					<!-- [@FormControls] -->		
+					<div class="row">
+					    <div class="col-md-2">
+					         ParentType
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="ParentType" class="form-control" data-ng-model="vm.Parent.ParentType" required />
+					        <span class="errorMessage" ng-show="itemForm.ParentType.$touched && itemForm.ParentType.$invalid">
+					            ParentType is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       FirstName
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="FirstName" class="form-control" data-ng-model="vm.Parent.FirstName" required />
+					        <span class="errorMessage" ng-show="itemForm.FirstName.$touched && itemForm.FirstName.$invalid">
+					            FirstName is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       LastName
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="LastName" class="form-control" data-ng-model="vm.Parent.LastName" required />
+					        <span class="errorMessage" ng-show="itemForm.LastName.$touched && itemForm.LastName.$invalid">
+					            LastName is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         DateOfBirth
+					    </div>
+					    <div class="col-md-10">
+					        <input type="date" name="DateOfBirth" class="form-control" data-ng-model="vm.Parent.DateOfBirth" required />
+					        <span class="errorMessage" ng-show="itemForm.DateOfBirth.$touched && itemForm.DateOfBirth.$invalid">
+					            DateOfBirth is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       Address
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Address" class="form-control" data-ng-model="vm.Parent.Address" required />
+					        <span class="errorMessage" ng-show="itemForm.Address.$touched && itemForm.Address.$invalid">
+					            Address is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       PhoneNumber
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="PhoneNumber" class="form-control" data-ng-model="vm.Parent.PhoneNumber" required />
+					        <span class="errorMessage" ng-show="itemForm.PhoneNumber.$touched && itemForm.PhoneNumber.$invalid">
+					            PhoneNumber is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       Email
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Email" class="form-control" data-ng-model="vm.Parent.Email" required />
+					        <span class="errorMessage" ng-show="itemForm.Email.$touched && itemForm.Email.$invalid">
+					            Email is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         Gender
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="Gender" class="form-control" data-ng-model="vm.Parent.Gender" required />
+					        <span class="errorMessage" ng-show="itemForm.Gender.$touched && itemForm.Gender.$invalid">
+					            Gender is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       FaceBook
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="FaceBook" class="form-control" data-ng-model="vm.Parent.FaceBook" required />
+					        <span class="errorMessage" ng-show="itemForm.FaceBook.$touched && itemForm.FaceBook.$invalid">
+					            FaceBook is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       Twitter
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Twitter" class="form-control" data-ng-model="vm.Parent.Twitter" required />
+					        <span class="errorMessage" ng-show="itemForm.Twitter.$touched && itemForm.Twitter.$invalid">
+					            Twitter is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       googleplus
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="googleplus" class="form-control" data-ng-model="vm.Parent.googleplus" required />
+					        <span class="errorMessage" ng-show="itemForm.googleplus.$touched && itemForm.googleplus.$invalid">
+					            googleplus is required
+					        </span>
+					    </div>
+					</div>
+
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" data-ng-click="vm.saveParent()"
+                                ng-disabled="itemForm.$invalid || !itemForm.$dirty">
+                            {{vm.buttonText}}
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger" data-ng-if="vm.parent.id > 0" data-ng-click="vm.deleteParent()">Delete</button>
+                    </div>
+                </div>
+                <br />
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-success" data-ng-show="vm.updateStatus">
+                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;Parent updated!
+                    </div>
+                </div>
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-important" data-ng-show="vm.errorMessage">
+                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ vm.errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

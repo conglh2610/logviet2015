@@ -1,0 +1,25 @@
+﻿
+<div class="modal-header">
+    <h3 class="modal-title">
+        {{vm.title}} Skill
+    </h3>
+</div>
+<div class="modal-body">
+    <form name="skillform" novalidate>
+        <div class="row customerEdit">
+            <div class="col-md-2">
+                Name:
+            </div>
+            <div class="col-md-10">
+                <input type="text" maxlength="255" class="form-control" required name="name" ng-data-model="vm.name" />
+                <span class="errorMessage" ng-show="skillform.name.$touched && skillform.name.$invalid">
+                    Name is required
+                </span>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="vm.saveSkill()">{{vm.buttonText}}</button>
+    <button class="btn btn-warning" ng-click="vm.cancelPopup()">Cancel</button>
+</div>

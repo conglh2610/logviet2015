@@ -1,0 +1,85 @@
+<div class="view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span> {{vm.title}} CarItem</h3>
+        </header>
+        <form name="itemForm" novalidate>
+            <div class="carItemEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>{{CarItem}} <span data-ng-hide="vm.carItem.id == 0">(<a style="font-size:12pt" href="#/carItemorders/{{vm.carItem.id}}">View Orders</a>)</span></h4>
+                        <br />
+                    </div>
+                </div>
+					<!-- [@FormControls] -->		
+					<div class="row">
+					    <div class="col-md-2">
+					         UnitPrice
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="UnitPrice" class="form-control" data-ng-model="vm.CarItem.UnitPrice" required />
+					        <span class="errorMessage" ng-show="itemForm.UnitPrice.$touched && itemForm.UnitPrice.$invalid">
+					            UnitPrice is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       Description
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Description" class="form-control" data-ng-model="vm.CarItem.Description" required />
+					        <span class="errorMessage" ng-show="itemForm.Description.$touched && itemForm.Description.$invalid">
+					            Description is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       CarNumber
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="CarNumber" class="form-control" data-ng-model="vm.CarItem.CarNumber" required />
+					        <span class="errorMessage" ng-show="itemForm.CarNumber.$touched && itemForm.CarNumber.$invalid">
+					            CarNumber is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         Total
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="Total" class="form-control" data-ng-model="vm.CarItem.Total" required />
+					        <span class="errorMessage" ng-show="itemForm.Total.$touched && itemForm.Total.$invalid">
+					            Total is required
+					        </span>
+					    </div>
+					</div>
+
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" data-ng-click="vm.saveCarItem()"
+                                ng-disabled="itemForm.$invalid || !itemForm.$dirty">
+                            {{vm.buttonText}}
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger" data-ng-if="vm.carItem.id > 0" data-ng-click="vm.deleteCarItem()">Delete</button>
+                    </div>
+                </div>
+                <br />
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-success" data-ng-show="vm.updateStatus">
+                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;CarItem updated!
+                    </div>
+                </div>
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-important" data-ng-show="vm.errorMessage">
+                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ vm.errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

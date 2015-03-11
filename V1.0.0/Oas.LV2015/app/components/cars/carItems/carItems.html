@@ -1,0 +1,77 @@
+﻿<div class="body-content">
+
+    <div class="container">
+        <h1><strong>{{vm.title}}</strong></h1>
+        <hr />
+        <div class="row">
+            <div class="col-md-3">
+                <select ng-options=" item.Id as item.Name for item in vm.carCategories" ng-model="vm.search.carCategoryId" class="dropdown form-control col-4">
+                    <option value="">--- Tất cả danh mục xe ---</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select ng-options="item.Id as item.Name for item in vm.carModels" ng-model="vm.search.carModelId" class="dropdown form-control col-4">
+                    <option value="">--- Tất cả đời xe ---</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="form-control " ng-model="vm.search.searchText" />
+            </div>
+            <div>
+                <input type="button" class="btn btn-primary" value="Tìm kiếm" ng-click="vm.search()" />
+            </div>
+        </div>
+        <br style="clear:both" />
+        <a style="clear:both" data-ng-click="vm.navigate('/carItemItem/0')" class="btn btn-success">
+            <span class=" glyphicon glyphicon-plus">
+            </span> Thêm mới đầu xe
+        </a>
+        <br /><br />
+        <div class="gridContainer customersTable show-hide-animation">
+            <div>
+                <table class="table table-bordered table-striped table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Hình ảnh</th>
+                            <th class="pointer" ng-repeat="carItemColumn in vm.carItemsColumns" ng-click="vm.setOrder(carItemColumn.columnName)">{{carItemColumn.displayName}}</th>
+                            <th class="column-action">Xử lý</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-ng-repeat="carItem in vm.carItems | orderBy:vm.columnName:vm.sortDirection" class="repeat-animation">
+                            <td><a class="white"></a></td>
+                            <td>{{carItem.Car.CarModel.CarCategory.Name}}</td>
+                            <td>{{carItem.Car.CarModel.Name}}</td>
+                            <td>{{carItem.Car.Name}}</td>
+                            <td>
+                                <a class="btn btn-info" href="#/carItemItem/{{carItem.Id}}">Sửa</a>
+                                <button class="btn btn-danger" data-ng-click="vm.deleteCarItem(carItem)">Xóa</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="show-hide-animation" data-ng-show="vm.carItems.length == 0">
+            <div class="col-span-12">
+                <h4 class="text-info">Không tìm thấy xe nào!</h4>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="show-hide-animation" data-ng-show="vm.carItems.length > 0">
+            <div class="col-md-12">
+                <div data-pagination
+                     data-on-select-page="vm.pageChanged(page)"
+                     data-total-items="vm.totalItems"
+                     data-page="vm.currentPage"
+                     data-items-per-page="vm.itemPerPage"
+                     data-boundary-links="true"
+                     class="pagination-sm"></div>
+                <h5 class="text-info">Hiển thị {{ vm.carItems.length }} trong tổng số {{ vm.totalRecords}} đầu xe</h5>
+            </div>
+        </div>
+    </div>
+</div>

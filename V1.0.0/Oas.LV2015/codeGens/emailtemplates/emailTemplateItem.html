@@ -1,0 +1,63 @@
+<div class="view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span> {{vm.title}} EmailTemplate</h3>
+        </header>
+        <form name="itemForm" novalidate>
+            <div class="emailTemplateEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>{{EmailTemplate}} <span data-ng-hide="vm.emailTemplate.id == 0">(<a style="font-size:12pt" href="#/emailTemplateorders/{{vm.emailTemplate.id}}">View Orders</a>)</span></h4>
+                        <br />
+                    </div>
+                </div>
+					<!-- [@FormControls] -->		
+					<div class="row">
+					    <div class="col-md-2">
+					       Name
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Name" class="form-control" data-ng-model="vm.EmailTemplate.Name" required />
+					        <span class="errorMessage" ng-show="itemForm.Name.$touched && itemForm.Name.$invalid">
+					            Name is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       Content
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Content" class="form-control" data-ng-model="vm.EmailTemplate.Content" required />
+					        <span class="errorMessage" ng-show="itemForm.Content.$touched && itemForm.Content.$invalid">
+					            Content is required
+					        </span>
+					    </div>
+					</div>
+
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" data-ng-click="vm.saveEmailTemplate()"
+                                ng-disabled="itemForm.$invalid || !itemForm.$dirty">
+                            {{vm.buttonText}}
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger" data-ng-if="vm.emailTemplate.id > 0" data-ng-click="vm.deleteEmailTemplate()">Delete</button>
+                    </div>
+                </div>
+                <br />
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-success" data-ng-show="vm.updateStatus">
+                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;EmailTemplate updated!
+                    </div>
+                </div>
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-important" data-ng-show="vm.errorMessage">
+                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ vm.errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

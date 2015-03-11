@@ -1,0 +1,96 @@
+<div class="view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span> {{vm.title}} MembershipPackage</h3>
+        </header>
+        <form name="itemForm" novalidate>
+            <div class="membershipPackageEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>{{MembershipPackage}} <span data-ng-hide="vm.membershipPackage.id == 0">(<a style="font-size:12pt" href="#/membershipPackageorders/{{vm.membershipPackage.id}}">View Orders</a>)</span></h4>
+                        <br />
+                    </div>
+                </div>
+					<!-- [@FormControls] -->		
+					<div class="row">
+					    <div class="col-md-2">
+					       Name
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Name" class="form-control" data-ng-model="vm.MembershipPackage.Name" required />
+					        <span class="errorMessage" ng-show="itemForm.Name.$touched && itemForm.Name.$invalid">
+					            Name is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					       Description
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Description" class="form-control" data-ng-model="vm.MembershipPackage.Description" required />
+					        <span class="errorMessage" ng-show="itemForm.Description.$touched && itemForm.Description.$invalid">
+					            Description is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         Price
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="Price" class="form-control" data-ng-model="vm.MembershipPackage.Price" required />
+					        <span class="errorMessage" ng-show="itemForm.Price.$touched && itemForm.Price.$invalid">
+					            Price is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         OldPrice
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="OldPrice" class="form-control" data-ng-model="vm.MembershipPackage.OldPrice" required />
+					        <span class="errorMessage" ng-show="itemForm.OldPrice.$touched && itemForm.OldPrice.$invalid">
+					            OldPrice is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         Duration
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="Duration" class="form-control" data-ng-model="vm.MembershipPackage.Duration" required />
+					        <span class="errorMessage" ng-show="itemForm.Duration.$touched && itemForm.Duration.$invalid">
+					            Duration is required
+					        </span>
+					    </div>
+					</div>
+
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" data-ng-click="vm.saveMembershipPackage()"
+                                ng-disabled="itemForm.$invalid || !itemForm.$dirty">
+                            {{vm.buttonText}}
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger" data-ng-if="vm.membershipPackage.id > 0" data-ng-click="vm.deleteMembershipPackage()">Delete</button>
+                    </div>
+                </div>
+                <br />
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-success" data-ng-show="vm.updateStatus">
+                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;MembershipPackage updated!
+                    </div>
+                </div>
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-important" data-ng-show="vm.errorMessage">
+                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ vm.errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

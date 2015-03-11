@@ -1,0 +1,85 @@
+<div class="view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span> {{vm.title}} Program</h3>
+        </header>
+        <form name="itemForm" novalidate>
+            <div class="programEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>{{Program}} <span data-ng-hide="vm.program.id == 0">(<a style="font-size:12pt" href="#/programorders/{{vm.program.id}}">View Orders</a>)</span></h4>
+                        <br />
+                    </div>
+                </div>
+					<!-- [@FormControls] -->		
+					<div class="row">
+					    <div class="col-md-2">
+					       Name
+					    </div>
+					    <div class="col-md-10">
+					        <input type="text" name="Name" class="form-control" data-ng-model="vm.Program.Name" required />
+					        <span class="errorMessage" ng-show="itemForm.Name.$touched && itemForm.Name.$invalid">
+					            Name is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         TotalMonths
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="TotalMonths" class="form-control" data-ng-model="vm.Program.TotalMonths" required />
+					        <span class="errorMessage" ng-show="itemForm.TotalMonths.$touched && itemForm.TotalMonths.$invalid">
+					            TotalMonths is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         Price
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="Price" class="form-control" data-ng-model="vm.Program.Price" required />
+					        <span class="errorMessage" ng-show="itemForm.Price.$touched && itemForm.Price.$invalid">
+					            Price is required
+					        </span>
+					    </div>
+					</div>
+					<div class="row">
+					    <div class="col-md-2">
+					         LanguageLevel
+					    </div>
+					    <div class="col-md-10">
+					        <input type="number" name="LanguageLevel" class="form-control" data-ng-model="vm.Program.LanguageLevel" required />
+					        <span class="errorMessage" ng-show="itemForm.LanguageLevel.$touched && itemForm.LanguageLevel.$invalid">
+					            LanguageLevel is required
+					        </span>
+					    </div>
+					</div>
+
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" data-ng-click="vm.saveProgram()"
+                                ng-disabled="itemForm.$invalid || !itemForm.$dirty">
+                            {{vm.buttonText}}
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger" data-ng-if="vm.program.id > 0" data-ng-click="vm.deleteProgram()">Delete</button>
+                    </div>
+                </div>
+                <br />
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-success" data-ng-show="vm.updateStatus">
+                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;Program updated!
+                    </div>
+                </div>
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-important" data-ng-show="vm.errorMessage">
+                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ vm.errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
